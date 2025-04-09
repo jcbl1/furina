@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: furina
+  profiles:
+    active: dev
+
+server:
+  port: 10240
