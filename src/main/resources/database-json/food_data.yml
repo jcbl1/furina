@@ -1,0 +1,1248 @@
+- title: 子固路拌粉
+  thumbnail_path: images/thumbnails/09eca573-caef-4e02-ac73-92e8656bf819
+  rating: 4.8
+  sales_monthly: 1000
+  average_cost: 20
+  delivery_time: 48
+  featured_comment: 都吃完了
+  items:
+    - name: 藕片两片
+      description:
+      price: 2.6
+    - name: 里脊肉小串
+      description:
+      price: 0.99
+    - name: 肉酱拌粉
+      description: 一钵子粉,两勺子肉酱,满满当当,散发着浓浓香味。每根米粉都吸足了酱汁,晶亮剔透的,诱人味蕾!
+      price: 12.8
+    - name: 老南昌经典拌粉+荷包炸蛋
+      description: 吸一口油香弹滑的拌粉,配合南昌直爽的辣刺激味蕾,炸的酥脆的花生米、混合着腌萝卜丁、香葱与香菜,再配合子固路拌粉秘制酱料,每一根米粉都在唇齿间穿梭!
+      price: 10.88
+
+- title: XX厨·绝无预制菜
+  thumbnail_path: images/thumbnails/30d9a04d-dee8-4604-bfa7-c6021bba53da
+  rating: 4.7
+  sales_monthly: 9000
+  average_cost: 20
+  delivery_time: 43
+  featured_comment:
+  items:
+    - name: 辣椒炒肉+【米饭】
+      description: 暂无
+      price: 23.8
+    - name: 擂辣椒烧排骨+【米饭】
+      description: 暂无
+      price: 30.8
+    - name: 青椒炒土鸡蛋
+      description: 暂无
+      price: 16.8
+    - name: 肉末茄子
+      description: 暂无
+      price: 17.8
+
+- title: 周先森红烧肉
+  thumbnail_path: images/thumbnails/17acd97f-f189-4453-89f7-8f02e7b9de8a
+  rating: 4.9
+  sales_monthly: 1000
+  average_cost:
+  delivery_time: 40
+  featured_comment:
+  items:
+    - name: 🔥🐉软糯可口的红烧肉+米饭
+      description: 软糯可口的秘制红烧肉
+      price: 23.8
+
+- title: 川渝小馆·现炒江湖菜
+  thumbnail_path: images/thumbnails/8d2f4c6a-1e7d-4b89-9d4a-1c3e5f7a82b1
+  rating: 4.6
+  sales_monthly: 3200
+  average_cost: 28
+  delivery_time: 38
+  featured_comment: 辣得过瘾！配菜很新鲜
+  items:
+    - name: 沸腾水煮牛肉
+      description: 现泼辣椒油滋滋作响，嫩牛肉片裹着麻辣红油在青笋豆芽上翻腾
+      price: 39.9
+    - name: 双椒霸王兔
+      description: null
+      price: 45.8
+    - name: 麻婆豆腐（配米饭）
+      description: 豆腐在红油中若隐若现，花椒粉的麻香直窜鼻腔
+      price: 15.9
+- title: 江南蟹粉专门店
+  thumbnail_path: images/thumbnails/c3b9e1a2-0a8f-4d8c-ae2b-6f9d1e4c5d72
+  rating: 4.9
+  sales_monthly: 2800
+  average_cost: 68
+  delivery_time: 45
+  featured_comment: 蟹粉量足到能挂勺
+  items:
+    - name: 纯蟹黄金捞饭
+      description: 十只大闸蟹拆出一碗金汤，配五常大米现蒸饭
+      price: 128
+    - name: 蟹粉小笼包（4只）
+      description: 半透明面皮裹着晃动的蟹黄汤汁
+      price: 38
+    - name: 醉熟六月黄
+      description: null
+      price: 58
+- title: 深夜豆浆油条坊
+  thumbnail_path: images/thumbnails/5e3f7a9b-6d1c-432e-9c8b-3a6b8d4f1e2a
+  rating: 4.5
+  sales_monthly: 6500
+  average_cost: 12
+  delivery_time: 25
+  featured_comment: 凌晨三点还能吃到现炸油条
+  items:
+    - name: 冰豆浆（古法石磨）
+      description: 带着石磨特有的焦香，可选加蜂蜜/白砂糖
+      price: 5.9
+    - name: 爆浆红糖糍粑
+      description: 现捶糯米裹着流动红糖芯
+      price: 8.8
+    - name: 双蛋油条肠粉
+      description: 现拉肠粉裹着酥脆油条和溏心蛋
+      price: 15.6
+- title: 汴京炙子烤肉
+  thumbnail_path: images/thumbnails/9a8b7c6d-4e3f-4a1c-8b2e-5f6d3e1f0a4b
+  rating: 4.7
+  sales_monthly: 4200
+  average_cost: 45
+  delivery_time: 50
+  featured_comment: null
+  items:
+    - name: 炙烤羊上脑（半斤）
+      description: 带皮羊肉在铁炙子上滋滋冒油
+      price: 68
+    - name: 酸菜五花肉拼盘
+      description: 东北酸菜中和五花油腻，配秘制麻酱
+      price: 39
+    - name: 烤烧饼夹肉
+      description: null
+      price: 12
+- title: 岭南养生糖水铺
+  thumbnail_path: images/thumbnails/f2a1b3c4-d5e6-4f7a-8c9d-1e2f3a4b5c6d
+  rating: 4.8
+  sales_monthly: 5800
+  average_cost: 18
+  delivery_time: 35
+  featured_comment: 桃胶炖得能拉丝
+  items:
+    - name: 椰香雪燕炖木瓜
+      description: 泰国椰青水慢炖2小时，胶原蛋白满满
+      price: 22.8
+    - name: 古法姜撞奶（热）
+      description: 现场冲撞，沙漏计时凝固
+      price: 15
+    - name: 杨枝甘露爆珠碗
+      description: null
+      price: 19.9
+
+- title: 秦川腊汁肉夹馍
+  thumbnail_path: images/thumbnails/a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d
+  rating: 4.7
+  sales_monthly: 8800
+  average_cost: 15
+  delivery_time: 28
+  featured_comment: 馍皮酥脆肉香四溢
+  items:
+    - name: 经典腊汁肉夹馍
+      description: 老汤卤制带皮猪肉，配现打白吉馍
+      price: 12
+    - name: 潼关千层馍
+      description: null
+      price: 9.9
+- title: 云海肴·汽锅鸡专门店
+  thumbnail_path: images/thumbnails/d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8g
+  rating: 4.8
+  sales_monthly: 4500
+  average_cost: 55
+  delivery_time: 40
+  featured_comment: 汤色清亮不油腻
+  items:
+    - name: 非遗汽锅鸡（半只）
+      description: 蒸汽凝结成汤，选用武定壮鸡
+      price: 78
+    - name: 黑松露焖饭
+      description: 当季新鲜黑松露现刨
+      price: 38
+- title: 潮汕鲜切牛肉火锅
+  thumbnail_path: images/thumbnails/h9i8j7k6-l5m4n3o2-p1q2r3s4t5u
+  rating: 4.9
+  sales_monthly: 6800
+  average_cost: 85
+  delivery_time: 55
+  featured_comment: 吊龙伴肥瘦刚好
+  items:
+    - name: 胸口朥（限量）
+      description: 烫煮3分钟脆弹爽口
+      price: 48
+    - name: 手打牛筋丸（6粒）
+      description: 爆汁弹牙
+      price: 28
+
+- title: 闽南海鲜大排档
+  thumbnail_path: images/thumbnails/3a4b5c6d-7e8f-9g0h-1i2j-3k4l5m6n7o8p
+  rating: 4.4
+  sales_monthly: 12800
+  average_cost: 45
+  delivery_time: 35
+  featured_comment: 蛏子肥得像拇指粗
+  items:
+    - name: 酱油水煮黄花鱼
+      description: 海钓黄鱼用古法酱油水炝煮
+      price: 58
+    - name: 海蛎煎（闽南版）
+      description: null
+      price: 28
+- title: 湘西土家腊味锅
+  thumbnail_path: images/thumbnails/q1w2e3r4-t5y6u7i8-o9p0a1s2d3f4
+  rating: 4.6
+  sales_monthly: 3600
+  average_cost: 65
+  delivery_time: 42
+  featured_comment: 腊肉烟熏味很正
+  items:
+    - name: 柴火烟熏腊肉锅
+      description: 松木熏制五花肉配干豆角
+      price: 88
+    - name: 血粑鸭（湘西特色）
+      description: 鸭血糯米粑与鸭肉同炒
+      price: 68
+- title: 关东煮物专门店
+  thumbnail_path: images/thumbnails/z1x2c3v4-b5n6m7l8-k9j8h7g6f5d4
+  rating: 4.5
+  sales_monthly: 15200
+  average_cost: 18
+  delivery_time: 25
+  featured_comment: 萝卜煮得透亮
+  items:
+    - name: 昆布鲣鱼汤底套餐
+      description: 含大根/竹轮/魔芋结
+      price: 22
+    - name: 明太子芝士爆浆丸
+      description: null
+      price: 6.8
+- title: 西域楼兰馕坑烤肉
+  thumbnail_path: images/thumbnails/e3r4t5y6-u7i8o9p0-a1s2d3f4g5h6
+  rating: 4.7
+  sales_monthly: 5800
+  average_cost: 50
+  delivery_time: 48
+  featured_comment: 红柳枝烤肉有戈壁味
+  items:
+    - name: 红柳枝烤羊排（半公斤）
+      description: 用南疆红柳枝串烤
+      price: 78
+    - name: 馕坑烤包子（3只）
+      description: 皮牙子羊肉馅
+      price: 18
+- title: 老北京铜锅涮肉
+  thumbnail_path: images/thumbnails/j7k8l9z0-x1c2v3b4-n5m6q7w8e9r0
+  rating: 4.8
+  sales_monthly: 7200
+  average_cost: 75
+  delivery_time: 50
+  featured_comment: 麻酱韭菜花调得地道
+  items:
+    - name: 鲜切羊上脑（立盘不倒）
+      description: 现切羊肉三岔部位
+      price: 68
+    - name: 麻酱火烧（2个）
+      description: null
+      price: 8
+
+- title: 蜀地椒麻鸡冷锅串串
+  thumbnail_path: images/thumbnails/f5g6h7j8-k9l0m1n2-o3p4q5r6s7t8
+  rating: 4.6
+  sales_monthly: 6400
+  average_cost: 32
+  delivery_time: 30
+  featured_comment: 藤椒油香到头皮发麻
+  items:
+    - name: 青花椒乌鸡片（20串）
+      description: 汉源花椒油浸泡的冷吃串串
+      price: 29.9
+    - name: 冒脑花（当日限量）
+      description: null
+      price: 18.8
+- title: 金陵盐水鸭世家
+  thumbnail_path: images/thumbnails/u9v0w1x2-y3z4a5b6-c7d8e9f0g1h2
+  rating: 4.7
+  sales_monthly: 4200
+  average_cost: 38
+  delivery_time: 33
+  featured_comment: 鸭皮像玉一样透亮
+  items:
+    - name: 古法盐水鸭（前脯）
+      description: 老卤腌制72小时，配鸭油烧饼
+      price: 45
+    - name: 鸭血粉丝汤套餐
+      description: 鸭杂现烫，粉丝不糊汤
+      price: 22
+- title: 顺德毋米粥火锅
+  thumbnail_path: images/thumbnails/i3j4k5l6-m7n8b9v0-c1x2z3a4s5d6
+  rating: 4.9
+  sales_monthly: 2900
+  average_cost: 88
+  delivery_time: 55
+  featured_comment: 最后那碗粥鲜掉眉毛
+  items:
+    - name: 白贝鲜虾粥底套餐
+      description: 含脆肉鲩鱼片/猪肝/油条
+      price: 128
+    - name: 陈皮牛肉丸（4粒）
+      description: 十年新会陈皮入馅
+      price: 28
+- title: 西安甄糕流动车
+  thumbnail_path: images/thumbnails/f7g8h9j0-k1l2m3n4-o5p6q7r8s9t0
+  rating: 4.3
+  sales_monthly: 13500
+  average_cost: 9
+  delivery_time: 20
+  featured_comment: 枣泥多到粘牙
+  items:
+    - name: 玫瑰蜜枣甄糕（大份）
+      description: 用木甑蒸制6小时
+      price: 12
+    - name: 冰镇醪糟（古法发酵）
+      description: null
+      price: 6
+- title: 黔东南酸汤鱼坊
+  thumbnail_path: images/thumbnails/u1v2w3x4-y5z6a7b8-c9d0e1f2g3h4
+  rating: 4.5
+  sales_monthly: 3800
+  average_cost: 55
+  delivery_time: 40
+  featured_comment: 酸味直冲天灵盖
+  items:
+    - name: 红酸汤江团鱼（2斤）
+      description: 凯里发酵红酸汤配木姜子
+      price: 98
+    - name: 折耳根蘸水（自助）
+      description: 贵州糊辣椒+水豆豉
+      price: 5
+
+- title: 瓦罐记·江西煨汤坊
+  thumbnail_path: images/thumbnails/8a3e9b2a-1c7d-4f5a-bc12-9f0d6a4c7b21
+  rating: 4.6
+  sales_monthly: 1500
+  average_cost: 28
+  delivery_time: 45
+  featured_comment: 汤鲜肉嫩，暖胃首选
+  items:
+    - name: 经典香菇肉饼瓦罐汤
+      description: 厚实肉饼与香菇久煨，汤汁清鲜醇厚，油香渗透却不腻:cite[2]:cite[4]
+      price: 15.8
+    - name: 莲藕排骨煨汤
+      description: 莲藕粉糯拉丝，排骨酥烂脱骨，慢火煨出江南秋意
+      price: 18.8
+    - name: 南昌拌粉三拼套餐
+      description: 牛肚+猪耳+藕片拌粉组合，搭配白糖糕，一次尝遍南昌味:cite[1]:cite[4]
+      price: 29.9
+- title: 巷陌老粉馆·湖南剁椒拌粉
+  thumbnail_path: images/thumbnails/5d7f1c34-ae62-498e-9d3a-6b8c3d0e1a9f
+  rating: 4.7
+  sales_monthly: 2300
+  average_cost: 22
+  delivery_time: 38
+  featured_comment: 剁椒香辣直击灵魂
+  items:
+    - name: 湘西酸辣鸡杂拌粉
+      description: 酸豆角与鸡杂爆炒，搭配剁椒酱，酸辣开胃超过瘾:cite[1]
+      price: 16.8
+    - name: 老长沙猪油拌粉
+      description: 猪油渣与酱油的黄金组合，朴素却勾人回忆
+      price: 12.6
+    - name: 红糖冰粉
+      description: 手搓冰粉配山楂碎，解辣神器冰凉沁心
+      price: 6.8
+- title: 福袋春卷研究所
+  thumbnail_path: images/thumbnails/3c9b0a8e-d5a8-4c1f-9e23-7e1f8a2d4b6c
+  rating: 4.5
+  sales_monthly: 850
+  average_cost: 18
+  delivery_time: 40
+  featured_comment: 一口一个惊喜
+  items:
+    - name: 三味福袋春卷拼盘
+      description: 芥菜虾仁+三鲜粉丝+红豆沙，炸至金黄酥脆如元宝:cite[1]
+      price: 14.9
+    - name: 鲜蔬素小笼包
+      description: 时令蔬菜包裹薄皮，蒸出江南春意盎然:cite[1]
+      price: 10.8
+    - name: 桂花酒酿小圆子
+      description: 手工糯米圆子漂浮酒酿，撒干桂花暗香浮动
+      price: 8.8
+- title: 筋斗云·川味卤拌专门店
+  thumbnail_path: images/thumbnails/e2a1d0f7-9b87-4a4b-9c0a-5d3f8c8e9b1d
+  rating: 4.8
+  sales_monthly: 3200
+  average_cost: 25
+  delivery_time: 35
+  featured_comment: 筋头巴脑的快乐
+  items:
+    - name: 筋筋有味拌粉
+      description: 牛筋鸭掌筋双拼，麻辣卤香挑战味蕾:cite[3]
+      price: 19.9
+    - name: 红油钵钵鸡
+      description: 芝麻红油浸润鸡翅尖、藕片，冷吃更入味
+      price: 12.8
+    - name: 冰镇醪糟汤圆
+      description: 手搓汤圆冰镇后更Q弹，醪糟发酵香醇
+      price: 7.9
+
+- title: 陈记砂锅·潮汕牛肉粿条
+  thumbnail_path: images/thumbnails/8c3a1b4d-9e2f-4a7c-b6d5-1e0f3a9c8b7e
+  rating: 4.7
+  sales_monthly: 2800
+  average_cost: 25
+  delivery_time: 42
+  featured_comment: 牛肉嫩得像会跳舞
+  items:
+    - name: 牛骨汤粿条三宝套餐
+      description: 牛筋丸+肥牛+牛百叶组合，配南姜末与沙茶酱
+      price: 29.9
+    - name: 普宁豆酱焗鸡翅
+      description: 豆酱咸香渗透鸡翅骨缝，焦糖色表皮脆而不硬
+      price: 15.8
+- title: 蜀香坊·乐山钵钵鸡
+  thumbnail_path: images/thumbnails/5d9c8a1b-3e7f-4d2a-b6c4-0a1f3e9d8c7a
+  rating: 4.6
+  sales_monthly: 4300
+  average_cost: 18
+  delivery_time: 38
+  featured_comment: 红油香得想打包
+  items:
+    - name: 藤椒鸡汤底套餐
+      description: 鸡胗+木耳+豆腐泡浸润青花椒的麻香
+      price: 22.8
+    - name: 红糖凉糕
+      description: 手作米凉糕淋古法红糖浆，解辣必备
+      price: 6.6
+
+- title: 金陵鸭血粉丝研究所
+  thumbnail_path: images/thumbnails/9f8e7a6b-5c4d-3e2a-1b0c-9a8b7c6d5e4f
+  rating: 4.5
+  sales_monthly: 3600
+  average_cost: 19
+  delivery_time: 40
+  featured_comment: 粉丝吸饱了鸭汤的鲜
+  items:
+    - name: 古法鸭血粉丝汤
+      description: 老鸭汤底配鸭胗鸭肠，撒香菜与辣油激发香气
+      price: 16.8
+    - name: 桂花糖芋苗
+      description: 芋头煮至绵软，淋糖桂花呈现琥珀光泽
+      price: 6.8
+- title: 滇味小锅米线·云南酸汤
+  thumbnail_path: images/thumbnails/a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+  rating: 4.7
+  sales_monthly: 2100
+  average_cost: 22
+  delivery_time: 45
+  featured_comment: 酸笋味道太上头
+  items:
+    - name: 傣味柠檬鸡米线
+      description: 青柠汁与小米辣调出东南亚风情
+      price: 18.8
+    - name: 玫瑰鲜花饼
+      description: 现烤酥皮包裹滇红玫瑰花瓣
+      price: 5.2
+- title: 秦川肉夹馍·陕西风味
+  thumbnail_path: images/thumbnails/b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+  rating: 4.6
+  sales_monthly: 4800
+  average_cost: 15
+  delivery_time: 35
+  featured_comment: 馍脆肉香量足
+  items:
+    - name: 腊汁肉夹馍（精瘦）
+      description: 三十年老卤炖煮猪肉，馍现打现烤
+      price: 12.8
+    - name: 麻酱凉皮
+      description: 手工蒸制凉皮配秘制油泼辣子
+      price: 9.9
+
+- title: 闽南海蛎煎专门店·厦门古早味
+  thumbnail_path: images/thumbnails/6d5e4f3a-2b1c-4a9b-8d7e-0f9a8b7c6d5e
+  rating: 4.4
+  sales_monthly: 1700
+  average_cost: 28
+  delivery_time: 43
+  featured_comment: 海蛎肥美无沙粒感
+  items:
+    - name: 黄金海蛎煎套餐
+      description: 地瓜粉包裹珠三角牡蛎，配厦门甜辣酱与萝卜酸
+      price: 24.8
+    - name: 沙茶面线糊
+      description: 猪骨汤底熬沙茶酱，加入面线鱼丸与炸蒜酥
+      price: 18.6
+- title: 沪上蟹粉小笼传习所
+  thumbnail_path: images/thumbnails/7e6d5c4b-3a2b-1c9d-8e7f-0a9b8c7d6e5f
+  rating: 4.8
+  sales_monthly: 5200
+  average_cost: 32
+  delivery_time: 38
+  featured_comment: 汤汁多到要用吸管
+  items:
+    - name: 蟹粉双拼小笼包(6只)
+      description: 纯蟹粉与蟹肉猪肉各3只，配姜丝陈醋碟
+      price: 36.8
+    - name: 酒酿桂花冰酪
+      description: 意大利Gelato工艺融合江南传统酒酿
+      price: 12.9
+- title: 巴蜀冒菜研究所·成都直送底料
+  thumbnail_path: images/thumbnails/8f7e6d5c-4b3a-2b1c-9d8e-7f0a9b8c7d6e
+  rating: 4.6
+  sales_monthly: 6700
+  average_cost: 26
+  delivery_time: 40
+  featured_comment: 辣得过瘾麻得舒服
+  items:
+    - name: 火锅牛肉冒菜套餐
+      description: 黄喉+毛肚+嫩牛肉组合，配独家香油碟
+      price: 29.9
+    - name: 红糖糍粑
+      description: 现炸糯米糍粑裹黄豆粉，淋古法红糖浆
+      price: 8.8
+- title: 岭南竹升面世家
+  thumbnail_path: images/thumbnails/9e8f7a6b-5c4d-3e2a-1b0c-9a8b7c6d5e4f
+  rating: 4.7
+  sales_monthly: 2300
+  average_cost: 22
+  delivery_time: 45
+  featured_comment: 面条弹牙像在跳舞
+  items:
+    - name: 鲜虾云吞竹升面
+      description: 全蛋面配整只海虾云吞，大地鱼汤底
+      price: 19.9
+    - name: 南乳猪手
+      description: 红腐乳焖煮猪手，胶质粘唇
+      price: 15.8
+- title: 西域楼兰·新疆大盘鸡
+  thumbnail_path: images/thumbnails/0a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+  rating: 4.5
+  sales_monthly: 3100
+  average_cost: 38
+  delivery_time: 50
+  featured_comment: 皮带面吸饱汤汁绝了
+  items:
+    - name: 沙湾大盘鸡（中份）
+      description: 三黄鸡与安集海辣椒炒制，配手工裤带面
+      price: 68
+    - name: 烤包子
+      description: 酥皮包裹羊肉皮牙子馅，馕坑现烤
+      price: 6.8
+
+- title: 潇湘阁·湖南剁椒鱼头
+  thumbnail_path: images/thumbnails/1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b
+  rating: 4.6
+  sales_monthly: 2800
+  average_cost: 35
+  delivery_time: 45
+  featured_comment: 鱼头嫩得像豆腐
+  items:
+    - name: 双椒水库鱼头王
+      description: 红绿剁椒覆盖5斤水库鱼头，配手工扯面吸汁
+      price: 88
+    - name: 农家小炒肉拌饭
+      description: 螺丝椒爆炒土猪肉，锅气直冲鼻腔
+      price: 22.8
+    - name: 红糖发糕
+      description: 古法发酵米糕，蜂窝状组织松软香甜
+      price: 6.6
+- title: 关东大院·东北铁锅炖
+  thumbnail_path: images/thumbnails/2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a
+  rating: 4.3
+  sales_monthly: 900
+  average_cost: 55
+  delivery_time: 55
+  featured_comment: 大鹅炖得骨肉分离
+  items:
+    - name: 酸菜白肉血肠锅
+      description: 自家腌渍酸菜与五花肉慢炖，血肠嫩滑不腥
+      price: 78
+    - name: 锅包肉（老式呛醋版）
+      description: 白醋糖浆挂糊炸里脊，上桌醋香扑鼻
+      price: 32.8
+- title: 姑苏桥·苏式汤面坊
+  thumbnail_path: images/thumbnails/3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+  rating: 4.8
+  sales_monthly: 1800
+  average_cost: 28
+  delivery_time: 40
+  featured_comment: 枫镇大肉面惊艳四座
+  items:
+    - name: 蟹粉汤包（4只装）
+      description: 现拆蟹粉与猪肉黄金比例，汤汁可倒满汤匙
+      price: 36.6
+    - name: 三虾面时令限定
+      description: 虾脑虾籽虾仁现炒浇头，拌面后挂满鲜味
+      price: 59.9
+- title: 长安炙·西安烤肉铺
+  thumbnail_path: images/thumbnails/4b5c6d7e-8f9a-0b1c-2d3e-4f5a6b7c8d9e
+  rating: 4.5
+  sales_monthly: 6100
+  average_cost: 18
+  delivery_time: 30
+  featured_comment: 肥瘦相间滋滋冒油
+  items:
+    - name: 红柳枝羊肉大串
+      description: 戈壁滩红柳穿羊腿肉，炭火逼出植物香气
+      price: 8.8
+    - name: 麻酱酿皮双拼
+      description: 面筋吸足麻酱汁，配油泼辣子增香
+      price: 12.6
+- title: 琼海记·海南椰子鸡
+  thumbnail_path: images/thumbnails/5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d
+  rating: 4.7
+  sales_monthly: 3400
+  average_cost: 42
+  delivery_time: 48
+  featured_comment: 椰青汤底清甜回甘
+  items:
+    - name: 文昌鸡椰子火锅套餐
+      description: 现开椰青水做汤底，配沙姜青柠蘸料
+      price: 88
+    - name: 椰奶清补凉
+      description: 12种小料铺满椰奶冰沙，海南岛夏日标配
+      price: 15.8
+
+- title: 北海道汤咖喱专门店
+  thumbnail_path: images/thumbnails/k5l6m7n8-o9p0q1r2-s3t4u5v6w7x8
+  rating: 4.7
+  sales_monthly: 2100
+  average_cost: 48
+  delivery_time: 38
+  featured_comment: 鸡腿酥到骨头都能嚼
+  items:
+    - name: 名物鸡腿汤咖喱（辣度可选）
+      description: 带骨鸡腿先炸后炖，配20种香料熬制汤底
+      price: 52
+    - name: 札幌风味奶油炖菜
+      description: null
+      price: 36
+- title: 徽州臭鳜鱼土菜馆
+  thumbnail_path: images/thumbnails/y9z0a1b2-c3d4e5f6-g7h8i9j0k1l2
+  rating: 4.2
+  sales_monthly: 1800
+  average_cost: 60
+  delivery_time: 45
+  featured_comment: 闻着臭吃着鲜
+  items:
+    - name: 古法腌鲜臭鳜鱼
+      description: 木桶腌制7天产生自然发酵味
+      price: 128
+    - name: 毛豆腐煎双拼
+      description: 配农家辣椒酱
+      price: 28
+- title: 首尔街头辣炒年糕
+  thumbnail_path: images/thumbnails/m3n4b5v6-c7x8z9a0-s1d2f3g4h5j6
+  rating: 4.5
+  sales_monthly: 5700
+  average_cost: 25
+  delivery_time: 28
+  featured_comment: 鱼饼串吸饱了辣酱
+  items:
+    - name: 芝士拉丝辣炒年糕
+      description: 马苏里拉芝士+韩式甜辣酱
+      price: 29.9
+    - name: 韩式蜂蜜黄油炸鸡（半只）
+      description: null
+      price: 36
+- title: 大理乳扇工作室
+  thumbnail_path: images/thumbnails/q1w2e3r4-t5y6u7i8-o9p0a1s2d3f4
+  rating: 4.8
+  sales_monthly: 3300
+  average_cost: 18
+  delivery_time: 22
+  featured_comment: 玫瑰酱是自己熬的
+  items:
+    - name: 炭烤乳扇卷（玫瑰花酱）
+      description: 邓川鲜奶制成，现烤现卷
+      price: 15
+    - name: 乳扇沙琪玛（伴手礼装）
+      description: 非遗传承人监制
+      price: 28
+- title: 台南古早味牛肉汤
+  thumbnail_path: images/thumbnails/k9j8h7g6-f5d4s3a2-l1z2x3c4v5b6
+  rating: 4.6
+  sales_monthly: 4900
+  average_cost: 35
+  delivery_time: 30
+  featured_comment: 汤头鲜得像现宰
+  items:
+    - name: 温体黄牛肉汤（配肉燥饭）
+      description: 凌晨现杀牛肉用高汤烫至三分熟
+      price: 45
+    - name: 蒜香牛杂拼盘
+      description: null
+      price: 38
+
+- title: 羽衣甘蓝轻食研究所
+  thumbnail_path: images/thumbnails/n7m8b9v0-c1x2z3a4-s5d6f7g8h9j0
+  rating: 4.4
+  sales_monthly: 8900
+  average_cost: 35
+  delivery_time: 25
+  featured_comment: 鸡胸肉居然不柴
+  items:
+    - name: 泰式柠檬虾仁蛋白碗
+      description: 含羽衣甘蓝/鹰嘴豆/三色藜麦
+      price: 42
+    - name: 牛油果奇亚籽酸奶杯
+      description: null
+      price: 26
+- title: 景德镇瓷碗拌粉
+  thumbnail_path: images/thumbnails/p1o2i3u4-y5t6r7e8-w9q0a1s2d3f4
+  rating: 4.5
+  sales_monthly: 6700
+  average_cost: 16
+  delivery_time: 20
+  featured_comment: 青花瓷碗能带走
+  items:
+    - name: 景德镇冷粉（瓷碗装）
+      description: 橘子皮/萝卜丁/辣椒末经典搭配
+      price: 15.8
+    - name: 碱水粑炒蛋
+      description: 景德镇传统小吃
+      price: 12
+- title: 曼谷街头手标奶茶
+  thumbnail_path: images/thumbnails/g5h6j7k8-l9z0x1c2-v3b4n5m6q7w8
+  rating: 4.6
+  sales_monthly: 11200
+  average_cost: 14
+  delivery_time: 18
+  featured_comment: 炼乳挂壁很正宗
+  items:
+    - name: 泰式粉红冻奶（碎冰版）
+      description: 用泰国手标红茶调色
+      price: 16.9
+    - name: 芒果糯米饭冰淇淋
+      description: null
+      price: 22
+- title: 汴梁四味菜老店
+  thumbnail_path: images/thumbnails/e3r4t5y6-u7i8o9p0-a1s2d3f4g5h6
+  rating: 4.3
+  sales_monthly: 2400
+  average_cost: 20
+  delivery_time: 30
+  featured_comment: 酥肉泡不脱浆
+  items:
+    - name: 四味菜（丸子/酥肉/面筋/黄花菜）
+      description: 百年老汤炖煮
+      price: 18
+    - name: 锅贴豆腐（非物质文化遗产）
+      description: 用鸡脯肉制成豆腐形状
+      price: 15
+- title: 泸州古蔺麻辣鸡
+  thumbnail_path: images/thumbnails/f7g8h9j0-k1l2m3n4-o5p6q7r8s9t0
+  rating: 4.7
+  sales_monthly: 3100
+  average_cost: 40
+  delivery_time: 35
+  featured_comment: 藤椒油是自己炼的
+  items:
+    - name: 古蔺风味麻辣鸡（半只）
+      description: 用跑山鸡先煮后拌
+      price: 58
+    - name: 手工苕粉（酸辣味）
+      description: 红薯粉现烫现拌
+      price: 12
+
+- title: 鲁味斋·济南把子肉
+  thumbnail_path: images/thumbnails/6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e
+  rating: 4.5
+  sales_monthly: 4200
+  average_cost: 20
+  delivery_time: 38
+  featured_comment: 肥肉颤巍巍却不腻口
+  items:
+    - name: 黄金把子肉套餐
+      description: 三线五花绑稻草慢炖，配虎皮辣椒与五香豆腐
+      price: 18.8
+    - name: 奶汤蒲菜
+      description: 大明湖蒲菜与老母鸡汤共煨，汤色乳白鲜醇
+      price: 12.6
+- title: 豫中烩面王·郑州老字号
+  thumbnail_path: images/thumbnails/7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f
+  rating: 4.6
+  sales_monthly: 5700
+  average_cost: 16
+  delivery_time: 35
+  featured_comment: 羊肉汤底熬得发白
+  items:
+    - name: 三鲜滋补烩面
+      description: 海参鱿鱼与羊肉片共烩，配枸杞红枣养生组合
+      price: 22.8
+    - name: 荆芥拌黄瓜
+      description: 河南特色香草与现拍黄瓜，蒜泥醋汁提味
+      price: 6.6
+- title: 晋韵刀削面·大同风味
+  thumbnail_path: images/thumbnails/8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a
+  rating: 4.4
+  sales_monthly: 3800
+  average_cost: 19
+  delivery_time: 40
+  featured_comment: 面条飞得如柳叶
+  items:
+    - name: 什锦臊子刀削面
+      description: 猪肉臊子+炸豆腐+鸡蛋丝，浇山西老陈醋
+      price: 15.8
+    - name: 平遥牛肉冷盘
+      description: 古法腌渍牛肉切片，肌理分明咸香适口
+      price: 24.8
+- title: 荆楚藕巷·湖北煨汤
+  thumbnail_path: images/thumbnails/9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b
+  rating: 4.7
+  sales_monthly: 2600
+  average_cost: 27
+  delivery_time: 45
+  featured_comment: 藕汤粉糯拉丝绝了
+  items:
+    - name: 铫子排骨藕汤
+      description: 洪湖粉藕与肋排煨至肉脱骨，汤面浮着金色油花
+      price: 32.8
+    - name: 三鲜豆皮
+      description: 糯米铺底，香菇笋丁与肉粒制成武汉过早经典
+      price: 9.9
+- title: 黔东南酸汤鱼·凯里直供
+  thumbnail_path: images/thumbnails/0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c
+  rating: 4.6
+  sales_monthly: 1900
+  average_cost: 45
+  delivery_time: 50
+  featured_comment: 酸味直冲天灵盖
+  items:
+    - name: 红酸汤江团鱼锅
+      description: 西红柿自然发酵酸汤，配木姜子提味
+      price: 78
+    - name: 丝娃娃拼盘
+      description: 十种素菜丝配酸汤蘸水，薄饼包裹食用
+      price: 16.8
+
+- title: 淮南牛肉汤·千层饼
+  thumbnail_path: images/thumbnails/b3n4m5q6-w7e8r9t0-y1u2i3o4p5a6
+  rating: 4.5
+  sales_monthly: 15600
+  average_cost: 18
+  delivery_time: 22
+  featured_comment: 汤头熬出奶白色
+  items:
+    - name: 牛骨粉丝汤套餐
+      description: 含千层饼+卤豆干
+      price: 20.5
+    - name: 现烙葱油千层饼
+      description: null
+      price: 6.8
+- title: 深夜砂锅粥潮汕排档
+  thumbnail_path: images/thumbnails/s8d9f0g1-h2j3k4l5-z6x7c8v9b0n1
+  rating: 4.7
+  sales_monthly: 8300
+  average_cost: 55
+  delivery_time: 45
+  featured_comment: 虾粥能喝出海鲜甜味
+  items:
+    - name: 膏蟹鲜虾粥（两人份）
+      description: 现杀活蟹加基围虾
+      price: 128
+    - name: 普宁豆酱炒通菜
+      description: 猛火快炒保留脆嫩
+      price: 18
+- title: 武汉热干面过早摊
+  thumbnail_path: images/thumbnails/m2w3e4r5-t6y7u8i9-o0p1a2s3d4f5
+  rating: 4.4
+  sales_monthly: 21400
+  average_cost: 12
+  delivery_time: 18
+  featured_comment: 芝麻酱稠得搅不动
+  items:
+    - name: 蔡林记同款热干面
+      description: 配酸豆角萝卜丁
+      price: 9.9
+    - name: 蛋酒（溏心蛋版）
+      description: null
+      price: 4.5
+- title: 延边朝鲜族米酒屋
+  thumbnail_path: images/thumbnails/q1a2z3w4-s5x6c7d8-e9f0v1g2h3j4
+  rating: 4.6
+  sales_monthly: 2900
+  average_cost: 40
+  delivery_time: 30
+  featured_comment: 米酒有气泡感
+  items:
+    - name: 辣白菜芝士炒饭
+      description: 拉丝马苏里拉芝士
+      price: 28
+    - name: 延边玉米温面
+      description: 配明太鱼丝
+      price: 22
+- title: 客家梅菜扣肉饭
+  thumbnail_path: images/thumbnails/k5l6j7h8-g9f0d1s2-a3q4w5e6r7t8
+  rating: 4.5
+  sales_monthly: 7400
+  average_cost: 25
+  delivery_time: 28
+  featured_comment: 梅菜晒得够干香
+  items:
+    - name: 古法蒸扣肉套餐
+      description: 三层五花配客家黄酒
+      price: 29
+    - name: 猪油渣炒菜心
+      description: 猪油渣现炸
+      price: 15
+
+- title: 滇味云腿·宣威老火腿坊
+  thumbnail_path: images/thumbnails/1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+  rating: 4.6
+  sales_monthly: 2300
+  average_cost: 48
+  delivery_time: 50
+  featured_comment: 三年陈腿肉透如玛瑙
+  items:
+    - name: 云腿月饼（现烤）
+      description: 硬壳火腿月饼配陈年蜂蜜，酥皮簌簌掉落
+      price: 9.9
+    - name: 火腿乳饼砂锅饭
+      description: 石屏豆腐乳与宣威火腿共焖，锅底结出金黄脆壳
+      price: 36.8
+- title: 潮汕夜糜·白粥打冷专门店
+  thumbnail_path: images/thumbnails/2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+  rating: 4.7
+  sales_monthly: 6800
+  average_cost: 25
+  delivery_time: 33
+  featured_comment: 半夜喝碗糜暖到心窝
+  items:
+    - name: 隆江猪脚冻套餐
+      description: 胶质凝成果冻状，配普宁豆酱与香菜
+      price: 18.8
+    - name: 生腌血蚶（限量）
+      description: 活蚶白酒杀毒，腌料激发海洋鲜甜
+      price: 28.8
+- title: 湘西腊味吊脚楼
+  thumbnail_path: images/thumbnails/3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+  rating: 4.5
+  sales_monthly: 1700
+  average_cost: 42
+  delivery_time: 55
+  featured_comment: 烟熏香钻进骨头缝
+  items:
+    - name: 腊猪脸肉炒蕨菜
+      description: 两年陈腊肉配深山野蕨，柴火灶复刻苗家风味
+      price: 39.9
+    - name: 糯米血肠蒸笼
+      description: 猪肠衣灌糯米与猪血，蒸制后切片油煎
+      price: 22.6
+- title: 敕勒川·内蒙手把肉
+  thumbnail_path: images/thumbnails/4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a
+  rating: 4.4
+  sales_monthly: 900
+  average_cost: 68
+  delivery_time: 60
+  featured_comment: 羊肉带着青草香
+  items:
+    - name: 带骨羊排手把肉（斤）
+      description: 清水煮草原羔羊排，配野韭菜花蘸料
+      price: 98
+    - name: 咸奶茶炒米
+      description: 传统砖茶熬制，加入黄油与炒米增香
+      price: 12.8
+- title: 榕城佛跳墙·福州官府菜
+  thumbnail_path: images/thumbnails/5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b
+  rating: 4.9
+  sales_monthly: 350
+  average_cost: 188
+  delivery_time: 65
+  featured_comment: 喝一口鲜到失语
+  items:
+    - name: 坛烧八珍佛跳墙
+      description: 鲍参翅肚文火慢煨三日，琥珀色汤汁挂壁
+      price: 288
+    - name: 红蟳米糕
+      description: 膏蟹盖糯米蒸制，蟹油渗透每粒米
+      price: 68.8
+
+- title: 喀什馕坑烤肉巴扎
+  thumbnail_path: images/thumbnails/r4t5y6u7-i8o9p0a1-s2d3f4g5h6j7
+  rating: 4.6
+  sales_monthly: 3800
+  average_cost: 48
+  delivery_time: 50
+  featured_comment: 孜然香得像在戈壁滩
+  items:
+    - name: 烤包子（羊肉皮牙子）
+      description: 馕坑高温烘烤至金黄
+      price: 8
+    - name: 红柳烤肉（半米长）
+      description: null
+      price: 25
+- title: 大理乳扇作坊
+  thumbnail_path: images/thumbnails/k8l9z0x1-c2v3b4n5-m6q7w8e9r0t1
+  rating: 4.3
+  sales_monthly: 1700
+  average_cost: 20
+  delivery_time: 40
+  featured_comment: 玫瑰酱是自己熬的
+  items:
+    - name: 炭烤乳扇卷（玫瑰味）
+      description: 邓川鲜奶制成薄片
+      price: 15
+    - name: 乳扇沙琪玛
+      description: 非遗技艺制作
+      price: 28
+- title: 北海道汤咖喱专门店
+  thumbnail_path: images/thumbnails/y2u3i4o5-p6a7s8d9-f0g1h2j3k4l5
+  rating: 4.7
+  sales_monthly: 4300
+  average_cost: 58
+  delivery_time: 38
+  featured_comment: 鸡腿炖到脱骨
+  items:
+    - name: 十蔬鸡腿汤咖喱
+      description: 含南瓜/秋葵/莲藕等时蔬
+      price: 45
+    - name: 名物炸温泉玉子
+      description: 外酥内流心
+      price: 9.9
+- title: 海南儋州米烂小吃
+  thumbnail_path: images/thumbnails/m2n3b4v5-c6x7z8a9-s1d2f3g4h5j6
+  rating: 4.4
+  sales_monthly: 2900
+  average_cost: 15
+  delivery_time: 25
+  featured_comment: 小鱼干炸得酥脆
+  items:
+    - name: 传统米烂（干拌）
+      description: 配花生碎/酸菜/鱿鱼干
+      price: 12
+    - name: 椰丝高粱粑
+      description: null
+      price: 6
+- title: 首尔酱蟹解酒屋
+  thumbnail_path: images/thumbnails/q9w8e7r6-t5y4u3i2-o1p2a3s4d5f6
+  rating: 4.8
+  sales_monthly: 2100
+  average_cost: 95
+  delivery_time: 55
+  featured_comment: 蟹黄拌饭绝了
+  items:
+    - name: 母蟹酱腌套餐（含米饭）
+      description: 当日活蟹腌制
+      price: 158
+    - name: 醒酒牛肉血肠汤
+      description: 韩国醒酒汤认证
+      price: 38
+
+- title: 宝岛夜市·台式古早味
+  thumbnail_path: images/thumbnails/6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c
+  rating: 4.6
+  sales_monthly: 5800
+  average_cost: 18
+  delivery_time: 32
+  featured_comment: 蚵仔煎边缘焦脆中心嫩滑
+  items:
+    - name: 大肠包小肠糯米套餐
+      description: 炭烤糯米肠切开夹台式香肠，淋蒜蓉酱与花生粉
+      price: 15.8
+    - name: 冬瓜茶冻撞奶
+      description: 古法熬制冬瓜茶制成茶冻，配鲜奶形成琥珀纹
+      price: 9.9
+- title: 桂北酸嘢·柳州螺蛳粉
+  thumbnail_path: images/thumbnails/7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+  rating: 4.7
+  sales_monthly: 9200
+  average_cost: 16
+  delivery_time: 28
+  featured_comment: 酸笋味穿透三层塑料袋
+  items:
+    - name: 炸弹螺蛳粉（加虎皮猪脚）
+      description: 炸蛋吸足红油汤底，配腐竹酸豆角黄金组合
+      price: 19.9
+    - name: 木薯糖水
+      description: 广西木薯煮至透明，糖水清润解辣
+      price: 5.6
+- title: 雪域藏香·拉萨牦牛肉坊
+  thumbnail_path: images/thumbnails/8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+  rating: 4.3
+  sales_monthly: 420
+  average_cost: 88
+  delivery_time: 70
+  featured_comment: 牦牛肉纤维粗犷有嚼劲
+  items:
+    - name: 藏式风干牦牛肉干
+      description: 海拔4000米自然风干半年，撕咬时肉丝分明
+      price: 128
+    - name: 酥油茶青稞饼
+      description: 现打酥油茶配烤青稞饼，高原早餐标配
+      price: 22.8
+- title: 港记车仔面·咖喱鱼蛋王
+  thumbnail_path: images/thumbnails/9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+  rating: 4.6
+  sales_monthly: 7300
+  average_cost: 24
+  delivery_time: 30
+  featured_comment: 鱼蛋弹到能打乒乓球
+  items:
+    - name: 四餸车仔面自选套餐
+      description: 咖喱鱼蛋+瑞士鸡翅+猪皮萝卜+牛杂任选组合
+      price: 28.8
+    - name: 丝袜奶茶（冻）
+      description: 六道拉茶工序，冰块用奶茶原液冷冻制成
+      price: 12.8
+- title: 徽州毛豆腐·黄山古法发酵
+  thumbnail_path: images/thumbnails/0d1e2f3a-4b5c-6d7e-8f9a-0b1c2d3e4f5a
+  rating: 4.4
+  sales_monthly: 1300
+  average_cost: 26
+  delivery_time: 48
+  featured_comment: 菌丝长得像白色天鹅绒
+  items:
+    - name: 铁板毛豆腐双拼
+      description: 香煎+酱烧两种做法，配辣椒酱与香菜末
+      price: 18.8
+    - name: 胡适一品锅
+      description: 蛋饺/肉圆/干豆角/笋干叠成宝塔形慢炖
+      price: 58
+
+- title: 菩提树素斋坊
+  thumbnail_path: images/thumbnails/t5y6u7i8-o9p0a1s2-d3f4g5h6j7k8
+  rating: 4.5
+  sales_monthly: 1800
+  average_cost: 60
+  delivery_time: 40
+  featured_comment: 素东坡肉能以假乱真
+  items:
+    - name: 十八罗汉斋（功德林同款）
+      description: 山珍菌菇搭配秘制素高汤
+      price: 88
+    - name: 素蟹粉豆腐
+      description: 胡萝卜南瓜模拟蟹黄
+      price: 45
+- title: 分子料理实验室
+  thumbnail_path: images/thumbnails/l3m4n5b6-v7c8x9z0-a1s2d3f4g5h6
+  rating: 4.7
+  sales_monthly: 900
+  average_cost: 220
+  delivery_time: 60
+  featured_comment: 液氮冰淇淋像在吞云吐雾
+  items:
+    - name: 泡沫鹅肝樱桃
+      description: 分子胶囊技术处理
+      price: 158
+    - name: 低温慢煮和牛（72小时）
+      description: null
+      price: 298
+- title: 徽州毛豆腐传习所
+  thumbnail_path: images/thumbnails/j9k0l1z2-x3c4v5b6-n7m8q9w0e1r2
+  rating: 4.2
+  sales_monthly: 3200
+  average_cost: 25
+  delivery_time: 30
+  featured_comment: 菌丝长得像羊毛
+  items:
+    - name: 铁板毛豆腐（配辣酱）
+      description: 自然发酵72小时
+      price: 18
+    - name: 胡适一品锅（小份）
+      description: 徽州传统杂烩
+      price: 58
+- title: 京都宇治抹茶本铺
+  thumbnail_path: images/thumbnails/u3i4o5p6-a7s8d9f0-g1h2j3k4l5m6
+  rating: 4.9
+  sales_monthly: 8400
+  average_cost: 35
+  delivery_time: 22
+  featured_comment: 抹茶粉有海苔香
+  items:
+    - name: 特浓抹茶千层（18层）
+      description: 用丸久小山园青岚
+      price: 39
+    - name: 玄米茶冰淇淋大福
+      description: null
+      price: 15
+- title: 重庆梯坎豆花饭
+  thumbnail_path: images/thumbnails/q5w6e7r8-t9y0u1i2-o3p4a5s6d7f8
+  rating: 4.6
+  sales_monthly: 5500
+  average_cost: 12
+  delivery_time: 18
+  featured_comment: 辣椒蘸水够劲
+  items:
+    - name: 胆水豆花（配米饭）
+      description: 用深井盐卤点制
+      price: 9.9
+    - name: 烧椒皮蛋（流心）
+      price: 6.6
+
+- title: 津门煎饼馃子流动车
+  thumbnail_path: images/thumbnails/r4t5y6u7-i8o9p0a1-s2d3f4g5h6j7
+  rating: 4.7
+  sales_monthly: 13200
+  average_cost: 8
+  delivery_time: 15
+  featured_comment: 馃篦儿脆得能听见声
+  items:
+    - name: 双蛋馃篦儿煎饼
+      description: 绿豆面现磨现摊
+      price: 9.9
+    - name: 老味面茶（芝麻盐版）
+      description: null
+      price: 5
+- title: 苏式糕团老字号
+  thumbnail_path: images/thumbnails/k8l9z0x1-c2v3b4n5-m6q7w8e9r0t1
+  rating: 4.6
+  sales_monthly: 6800
+  average_cost: 18
+  delivery_time: 25
+  featured_comment: 薄荷方糕凉到心底
+  items:
+    - name: 玫瑰猪油年糕（切片）
+      description: 用云南重瓣玫瑰
+      price: 22
+    - name: 双酿团（芝麻豆沙双芯）
+      description: 非遗传承配方
+      price: 6
+- title: 台南棺材板创意厨房
+  thumbnail_path: images/thumbnails/y2u3i4o5-p6a7s8d9-f0g1h2j3k4l5
+  rating: 4.4
+  sales_monthly: 2400
+  average_cost: 35
+  delivery_time: 30
+  featured_comment: 吐司盒子比手掌厚
+  items:
+    - name: 黑椒牛柳棺材板
+      description: 厚切吐司挖空油炸
+      price: 28
+    - name: 蚵仔酥拼盘
+      description: null
+      price: 18
+- title: 襄阳牛肉面研究所
+  thumbnail_path: images/thumbnails/m2n3b4v5-c6x7z8a9-s1d2f3g4h5j6
+  rating: 4.8
+  sales_monthly: 4100
+  average_cost: 22
+  delivery_time: 28
+  featured_comment: 牛油辣得嘴唇跳舞
+  items:
+    - name: 红油豆腐面（配黄酒）
+      description: 碱水面配嫩豆腐
+      price: 15
+    - name: 牛杂锅盔
+      description: 炭火烤制空心锅盔
+      price: 9
+- title: 法式可丽饼小站
+  thumbnail_path: images/thumbnails/q9w8e7r6-t5y4u3i2-o1p2a3s4d5f6
+  rating: 4.5
+  sales_monthly: 5700
+  average_cost: 28
+  delivery_time: 20
+  featured_comment: 橙香火焰可丽饼超炫
+  items:
+    - name: 培根芝士咸味可丽饼
+      description: 荞麦面饼现煎
+      price: 32
+    - name: Grand Marnier火焰橙酒
+      description: 现场表演燃烧
+      price: 45
