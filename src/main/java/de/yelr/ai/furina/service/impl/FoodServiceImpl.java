@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import de.yelr.ai.furina.common.PageResponse;
 import de.yelr.ai.furina.dto.food.FoodCreateRequest;
 import de.yelr.ai.furina.dto.food.FoodItemRequest;
+import de.yelr.ai.furina.dto.food.FoodItemResponse;
 import de.yelr.ai.furina.dto.food.FoodResponse;
 import de.yelr.ai.furina.dto.food.FoodSummaryResponse;
+import de.yelr.ai.furina.dto.food.FoodUpdateRequest;
 import de.yelr.ai.furina.entity.FoodData;
 import de.yelr.ai.furina.entity.FoodDataItem;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
@@ -61,22 +63,14 @@ public class FoodServiceImpl implements FoodService {
         if (food == null) {
             return null;
         }
-        List<FoodDataItem> items = foodDataItemMapper.selectList(
-                Wrappers.<FoodDataItem>lambdaQuery().eq(FoodDataItem::getFoodDataId, id));
-        return FoodResponse.from(food, items);
+        return FoodResponse.from(food, loadItems(id));
     }
 
     @Override
     @Transactional
     public FoodResponse create(FoodCreateRequest request) {
         FoodData food = new FoodData();
-        food.setThumbnailPath(request.thumbnailPath());
-        food.setTitle(request.title());
-        food.setRating(request.rating());
-        food.setSalesMonthly(request.salesMonthly());
-        food.setAverageCost(request.averageCost());
-        food.setDeliveryTime(request.deliveryTime());
-        food.setFeaturedComment(request.featuredComment());
+        applyCreateRequest(food, request);
         foodDataMapper.insert(food);
 
         List<FoodDataItem> items = insertItems(food.getId(), request.items());
@@ -97,6 +91,76 @@ public class FoodServiceImpl implements FoodService {
         return inserted;
     }
 
+    @Override
+    @Transactional
+    public FoodResponse update(int id, FoodUpdateRequest request) {
+        FoodData food = foodDataMapper.selectById(id);
+        if (food == null) {
+            return null;
+        }
+        food.setThumbnailPath(request.thumbnailPath());
+        food.setTitle(request.title());
+        food.setRating(request.rating());
+        food.setSalesMonthly(request.salesMonthly());
+        food.setAverageCost(request.averageCost());
+        food.setDeliveryTime(request.deliveryTime());
+        food.setFeaturedComment(request.featuredComment());
+        foodDataMapper.updateById(food);
+        return FoodResponse.from(food, loadItems(id));
+    }
+
+    @Override
+    @Transactional
+    public boolean delete(int id) {
+        return foodDataMapper.deleteById(id) > 0;
+    }
+
+    @Override
+    @Transactional
+    public FoodItemResponse addItem(int foodId, FoodItemRequest request) {
+        if (foodDataMapper.selectById(foodId) == null) {
+            return null;
+        }
+        FoodDataItem item = new FoodDataItem();
+        item.setFoodDataId(foodId);
+        applyItemRequest(item, request);
+        foodDataItemMapper.insert(item);
+        return FoodItemResponse.from(item);
+    }
+
+    @Override
+    @Transactional
+    public FoodItemResponse updateItem(int foodId, int itemId, FoodItemRequest request) {
+        FoodDataItem item = findItem(foodId, itemId);
+        if (item == null) {
+            return null;
+        }
+        applyItemRequest(item, request);
+        foodDataItemMapper.updateById(item);
+        return FoodItemResponse.from(item);
+    }
+
+    @Override
+    @Transactional
+    public boolean deleteItem(int foodId, int itemId) {
+        FoodDataItem item = findItem(foodId, itemId);
+        if (item == null) {
+            return false;
+        }
+        return foodDataItemMapper.deleteById(itemId) > 0;
+    }
+
+    private FoodDataItem findItem(int foodId, int itemId) {
+        return foodDataItemMapper.selectOne(Wrappers.<FoodDataItem>lambdaQuery()
+                .eq(FoodDataItem::getId, itemId)
+                .eq(FoodDataItem::getFoodDataId, foodId));
+    }
+
+    private List<FoodDataItem> loadItems(int foodId) {
+        return foodDataItemMapper.selectList(
+                Wrappers.<FoodDataItem>lambdaQuery().eq(FoodDataItem::getFoodDataId, foodId));
+    }
+
     private List<FoodDataItem> insertItems(Integer foodId, List<FoodItemRequest> itemRequests) {
         List<FoodDataItem> items = new ArrayList<>();
         if (itemRequests == null) {
@@ -105,13 +169,27 @@ public class FoodServiceImpl implements FoodService {
         for (FoodItemRequest itemRequest : itemRequests) {
             FoodDataItem item = new FoodDataItem();
             item.setFoodDataId(foodId);
-            item.setName(itemRequest.name());
-            item.setDescription(itemRequest.description());
-            item.setPrice(itemRequest.price());
+            applyItemRequest(item, itemRequest);
             foodDataItemMapper.insert(item);
             items.add(item);
         }
         return items;
+    }
+
+    private static void applyCreateRequest(FoodData food, FoodCreateRequest request) {
+        food.setThumbnailPath(request.thumbnailPath());
+        food.setTitle(request.title());
+        food.setRating(request.rating());
+        food.setSalesMonthly(request.salesMonthly());
+        food.setAverageCost(request.averageCost());
+        food.setDeliveryTime(request.deliveryTime());
+        food.setFeaturedComment(request.featuredComment());
+    }
+
+    private static void applyItemRequest(FoodDataItem item, FoodItemRequest request) {
+        item.setName(request.name());
+        item.setDescription(request.description());
+        item.setPrice(request.price());
     }
 
     private static void applySort(LambdaQueryWrapper<FoodData> query, String sortBy, String direction) {
