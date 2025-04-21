@@ -12,6 +12,7 @@ import de.yelr.ai.furina.dto.food.FoodSummaryResponse;
 import de.yelr.ai.furina.dto.food.FoodUpdateRequest;
 import de.yelr.ai.furina.entity.FoodData;
 import de.yelr.ai.furina.entity.FoodDataItem;
+import de.yelr.ai.furina.exception.ApiException;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.FoodService;
@@ -59,10 +60,7 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public FoodResponse findById(int id) {
-        FoodData food = foodDataMapper.selectById(id);
-        if (food == null) {
-            return null;
-        }
+        FoodData food = requireFood(id);
         return FoodResponse.from(food, loadItems(id));
     }
 
@@ -94,10 +92,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     @Transactional
     public FoodResponse update(int id, FoodUpdateRequest request) {
-        FoodData food = foodDataMapper.selectById(id);
-        if (food == null) {
-            return null;
-        }
+        FoodData food = requireFood(id);
         food.setThumbnailPath(request.thumbnailPath());
         food.setTitle(request.title());
         food.setRating(request.rating());
@@ -111,16 +106,16 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     @Transactional
-    public boolean delete(int id) {
-        return foodDataMapper.deleteById(id) > 0;
+    public void delete(int id) {
+        if (foodDataMapper.deleteById(id) == 0) {
+            throw notFound(id);
+        }
     }
 
     @Override
     @Transactional
     public FoodItemResponse addItem(int foodId, FoodItemRequest request) {
-        if (foodDataMapper.selectById(foodId) == null) {
-            return null;
-        }
+        requireFood(foodId);
         FoodDataItem item = new FoodDataItem();
         item.setFoodDataId(foodId);
         applyItemRequest(item, request);
@@ -131,10 +126,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     @Transactional
     public FoodItemResponse updateItem(int foodId, int itemId, FoodItemRequest request) {
-        FoodDataItem item = findItem(foodId, itemId);
-        if (item == null) {
-            return null;
-        }
+        FoodDataItem item = requireItem(foodId, itemId);
         applyItemRequest(item, request);
         foodDataItemMapper.updateById(item);
         return FoodItemResponse.from(item);
@@ -142,18 +134,31 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     @Transactional
-    public boolean deleteItem(int foodId, int itemId) {
-        FoodDataItem item = findItem(foodId, itemId);
-        if (item == null) {
-            return false;
-        }
-        return foodDataItemMapper.deleteById(itemId) > 0;
+    public void deleteItem(int foodId, int itemId) {
+        FoodDataItem item = requireItem(foodId, itemId);
+        foodDataItemMapper.deleteById(item.getId());
     }
 
-    private FoodDataItem findItem(int foodId, int itemId) {
-        return foodDataItemMapper.selectOne(Wrappers.<FoodDataItem>lambdaQuery()
+    private FoodData requireFood(int id) {
+        FoodData food = foodDataMapper.selectById(id);
+        if (food == null) {
+            throw notFound(id);
+        }
+        return food;
+    }
+
+    private FoodDataItem requireItem(int foodId, int itemId) {
+        FoodDataItem item = foodDataItemMapper.selectOne(Wrappers.<FoodDataItem>lambdaQuery()
                 .eq(FoodDataItem::getId, itemId)
                 .eq(FoodDataItem::getFoodDataId, foodId));
+        if (item == null) {
+            throw ApiException.notFound("Menu item %d not found for food %d".formatted(itemId, foodId));
+        }
+        return item;
+    }
+
+    private static ApiException notFound(int id) {
+        return ApiException.notFound("Food %d not found".formatted(id));
     }
 
     private List<FoodDataItem> loadItems(int foodId) {
