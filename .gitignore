@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Runtime uploads
+src/main/resources/static/files/images/thumbnails/
+
 ### STS ###
 .apt_generated
 .classpath

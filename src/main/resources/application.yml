@@ -29,5 +29,8 @@ mybatis-plus:
     db-config:
       id-type: auto
 
+file-storage:
+  root-dir: ${FILE_STORAGE_ROOT:${user.dir}/src/main/resources/static/files}
+
 server:
   port: 10240
