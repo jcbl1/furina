@@ -29,6 +29,9 @@ mybatis-plus:
     db-config:
       id-type: auto
 
+app:
+  import-seed-data: false
+
 file-storage:
   root-dir: ${FILE_STORAGE_ROOT:${user.dir}/src/main/resources/static/files}
 
