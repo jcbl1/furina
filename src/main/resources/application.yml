@@ -29,6 +29,10 @@ mybatis-plus:
     db-config:
       id-type: auto
 
+jwt:
+  secret: ${JWT_SECRET:furina-local-development-secret}
+  expiration: ${JWT_EXPIRATION:86400000}
+
 app:
   import-seed-data: false
 
