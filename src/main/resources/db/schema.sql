@@ -30,3 +30,15 @@ CREATE TABLE IF NOT EXISTS food_data_item
 
 CREATE INDEX idx_food_data_title ON food_data (title);
 CREATE INDEX idx_food_data_item_food_data_id ON food_data_item (food_data_id);
+
+CREATE TABLE IF NOT EXISTS account
+(
+    id         BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username   VARCHAR(64)  NOT NULL UNIQUE,
+    password   VARCHAR(100) NOT NULL,
+    role       VARCHAR(32)  NOT NULL DEFAULT 'USER',
+    enabled    BOOLEAN      NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
