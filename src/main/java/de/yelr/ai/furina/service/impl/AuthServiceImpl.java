@@ -1,0 +1,52 @@
+package de.yelr.ai.furina.service.impl;
+
+import de.yelr.ai.furina.config.properties.JwtProperties;
+import de.yelr.ai.furina.dto.auth.CurrentUserResponse;
+import de.yelr.ai.furina.dto.auth.LoginRequest;
+import de.yelr.ai.furina.dto.auth.LoginResponse;
+import de.yelr.ai.furina.exception.ApiException;
+import de.yelr.ai.furina.security.AccountPrincipal;
+import de.yelr.ai.furina.security.JwtTokenProvider;
+import de.yelr.ai.furina.service.AuthService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthServiceImpl implements AuthService {
+
+    private final AuthenticationManager authenticationManager;
+    private final JwtTokenProvider tokenProvider;
+    private final JwtProperties jwtProperties;
+
+    public AuthServiceImpl(AuthenticationManager authenticationManager,
+                           JwtTokenProvider tokenProvider,
+                           JwtProperties jwtProperties) {
+        this.authenticationManager = authenticationManager;
+        this.tokenProvider = tokenProvider;
+        this.jwtProperties = jwtProperties;
+    }
+
+    @Override
+    public LoginResponse login(LoginRequest request) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.username(), request.password()));
+
+        AccountPrincipal principal = (AccountPrincipal) authentication.getPrincipal();
+        String token = tokenProvider.generateToken(principal);
+        return new LoginResponse(token, "Bearer", jwtProperties.expiration(), toResponse(principal));
+    }
+
+    @Override
+    public CurrentUserResponse currentUser(Authentication authentication) {
+        if (authentication == null || !(authentication.getPrincipal() instanceof AccountPrincipal principal)) {
+            throw ApiException.unauthorized("Authentication is required");
+        }
+        return toResponse(principal);
+    }
+
+    private static CurrentUserResponse toResponse(AccountPrincipal principal) {
+        return new CurrentUserResponse(principal.getId(), principal.getUsername(), principal.getRole());
+    }
+}
