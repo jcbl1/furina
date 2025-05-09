@@ -4,6 +4,7 @@ import de.yelr.ai.furina.security.JwtAuthenticationFilter;
 import de.yelr.ai.furina.security.JwtTokenProvider;
 import de.yelr.ai.furina.security.RestAccessDeniedHandler;
 import de.yelr.ai.furina.security.RestAuthenticationEntryPoint;
+import de.yelr.ai.furina.security.TokenBlacklistService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -75,7 +76,8 @@ public class SecurityConfig {
 
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter(JwtTokenProvider tokenProvider,
-                                                           UserDetailsService userDetailsService) {
-        return new JwtAuthenticationFilter(tokenProvider, userDetailsService);
+                                                           UserDetailsService userDetailsService,
+                                                           TokenBlacklistService blacklistService) {
+        return new JwtAuthenticationFilter(tokenProvider, userDetailsService, blacklistService);
     }
 }

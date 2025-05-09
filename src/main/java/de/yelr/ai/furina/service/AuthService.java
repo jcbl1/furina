@@ -10,4 +10,8 @@ public interface AuthService {
     LoginResponse login(LoginRequest request);
 
     CurrentUserResponse currentUser(Authentication authentication);
+
+    boolean validateToken(String token);
+
+    void logout(String authorizationHeader);
 }
