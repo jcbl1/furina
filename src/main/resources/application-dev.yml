@@ -1,3 +1,25 @@
+spring:
+  ai:
+    openai:
+      base-url: ${OPENAI_BASE_URL:https://api.bianxie.ai}
+      api-key: ${OPENAI_API_KEY:not-configured}
+      chat:
+        options:
+          model: ${OPENAI_CHAT_MODEL:gpt-4o-mini}
+    ollama:
+      chat:
+        options:
+          model: ${OLLAMA_CHAT_MODEL:gemma3:12b}
+      embedding:
+        options:
+          model: ${OLLAMA_EMBEDDING_MODEL:jeffh/intfloat-multilingual-e5-large:f32}
+    vectorstore:
+      elasticsearch:
+        index-name: ${ELASTICSEARCH_INDEX:spring-ai-document-index2}
+  elasticsearch:
+    username: ${ELASTICSEARCH_USERNAME:elastic}
+    password: ${ELASTICSEARCH_PASSWORD:changeme}
+
 logging:
   level:
     de.yelr.ai.furina: debug
