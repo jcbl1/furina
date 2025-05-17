@@ -46,6 +46,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/foods/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/v1/foods/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/v1/foods/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/v1/ai/index").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)

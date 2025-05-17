@@ -3,9 +3,11 @@ package de.yelr.ai.furina.controller;
 import de.yelr.ai.furina.common.ApiResponse;
 import de.yelr.ai.furina.dto.ai.ChatRequest;
 import de.yelr.ai.furina.dto.ai.ChatResponse;
+import de.yelr.ai.furina.dto.ai.IndexResponse;
 import de.yelr.ai.furina.dto.ai.SearchResultResponse;
 import de.yelr.ai.furina.dto.ai.SemanticSearchRequest;
 import de.yelr.ai.furina.service.AiAssistantService;
+import de.yelr.ai.furina.service.FoodIndexService;
 import de.yelr.ai.furina.service.FoodSearchService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,10 +25,14 @@ public class AiController {
 
     private final AiAssistantService assistantService;
     private final FoodSearchService foodSearchService;
+    private final FoodIndexService foodIndexService;
 
-    public AiController(AiAssistantService assistantService, FoodSearchService foodSearchService) {
+    public AiController(AiAssistantService assistantService,
+                        FoodSearchService foodSearchService,
+                        FoodIndexService foodIndexService) {
         this.assistantService = assistantService;
         this.foodSearchService = foodSearchService;
+        this.foodIndexService = foodIndexService;
     }
 
     @PostMapping("/chat")
@@ -39,6 +45,11 @@ public class AiController {
         int topK = request.topK() == null ? 5 : request.topK();
         return ApiResponse.success(
                 foodSearchService.search(request.query(), topK, request.filters()));
+    }
+
+    @PostMapping("/index")
+    public ApiResponse<IndexResponse> reindex() {
+        return ApiResponse.success(new IndexResponse(foodIndexService.reindex()));
     }
 
     @DeleteMapping("/chat/{sessionId}")
