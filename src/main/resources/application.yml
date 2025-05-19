@@ -20,6 +20,10 @@ spring:
   jackson:
     property-naming-strategy: SNAKE_CASE
     default-property-inclusion: non_null
+  ai:
+    vectorstore:
+      elasticsearch:
+        initialize-schema: true
 
 mybatis-plus:
   configuration:
