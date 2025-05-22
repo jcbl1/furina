@@ -42,3 +42,39 @@ CREATE TABLE IF NOT EXISTS account
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS customer_order
+(
+    id               BIGINT AUTO_INCREMENT PRIMARY KEY,
+    order_no         VARCHAR(40)    NOT NULL UNIQUE,
+    account_id       BIGINT,
+    immediate        BOOLEAN        NOT NULL,
+    minutes_from_now INT,
+    total_amount     DECIMAL(10, 2) NOT NULL,
+    status           VARCHAR(20)    NOT NULL,
+    created_at       DATETIME       NOT NULL,
+    CONSTRAINT fk_customer_order_account
+        FOREIGN KEY (account_id) REFERENCES account (id) ON DELETE SET NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS customer_order_item
+(
+    id                BIGINT AUTO_INCREMENT PRIMARY KEY,
+    order_id          BIGINT         NOT NULL,
+    food_data_id      INT            NOT NULL,
+    food_data_item_id INT            NOT NULL,
+    item_name         VARCHAR(255)   NOT NULL,
+    unit_price        DECIMAL(10, 2) NOT NULL,
+    quantity          INT            NOT NULL,
+    note              VARCHAR(255),
+    CONSTRAINT fk_customer_order_item_order
+        FOREIGN KEY (order_id) REFERENCES customer_order (id) ON DELETE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+CREATE INDEX idx_customer_order_account_id ON customer_order (account_id);
+CREATE INDEX idx_customer_order_order_no ON customer_order (order_no);
+CREATE INDEX idx_customer_order_item_order_id ON customer_order_item (order_id);
