@@ -1,19 +1,17 @@
 package de.yelr.ai.furina.security;
 
 import de.yelr.ai.furina.entity.Account;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class AccountPrincipal implements UserDetails, Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 1L;
+    @Serial private static final long serialVersionUID = 1L;
 
     private final Long id;
     private final String username;
@@ -21,7 +19,8 @@ public class AccountPrincipal implements UserDetails, Serializable {
     private final String role;
     private final boolean enabled;
 
-    public AccountPrincipal(Long id, String username, String password, String role, boolean enabled) {
+    public AccountPrincipal(
+            Long id, String username, String password, String role, boolean enabled) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -35,8 +34,7 @@ public class AccountPrincipal implements UserDetails, Serializable {
                 account.getUsername(),
                 account.getPassword(),
                 account.getRole(),
-                Boolean.TRUE.equals(account.getEnabled())
-        );
+                Boolean.TRUE.equals(account.getEnabled()));
     }
 
     public Long getId() {

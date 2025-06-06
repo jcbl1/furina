@@ -1,5 +1,8 @@
 package de.yelr.ai.furina.api;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -8,13 +11,9 @@ import okhttp3.Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
- * Manual smoke test against a locally running instance. Disabled so the
- * regular test suite stays self-contained.
+ * Manual smoke test against a locally running instance. Disabled so the regular test suite stays
+ * self-contained.
  */
 class ApiSmokeTest {
 
@@ -26,10 +25,8 @@ class ApiSmokeTest {
     @Test
     @Disabled("Requires the application, MySQL and Elasticsearch to be running")
     void healthEndpointIsPublic() throws IOException {
-        Request request = new Request.Builder()
-                .url(BASE_URL + "/api/v1/system/health")
-                .get()
-                .build();
+        Request request =
+                new Request.Builder().url(BASE_URL + "/api/v1/system/health").get().build();
 
         try (Response response = client.newCall(request).execute()) {
             assertThat(response.isSuccessful()).isTrue();
@@ -41,11 +38,10 @@ class ApiSmokeTest {
     @Test
     @Disabled("Requires the application and a seeded database to be running")
     void loginReturnsToken() throws IOException {
-        RequestBody body = RequestBody.create(JSON, "{\"username\":\"admin\",\"password\":\"password\"}");
-        Request request = new Request.Builder()
-                .url(BASE_URL + "/api/v1/auth/login")
-                .post(body)
-                .build();
+        RequestBody body =
+                RequestBody.create(JSON, "{\"username\":\"admin\",\"password\":\"password\"}");
+        Request request =
+                new Request.Builder().url(BASE_URL + "/api/v1/auth/login").post(body).build();
 
         try (Response response = client.newCall(request).execute()) {
             assertThat(response.isSuccessful()).isTrue();

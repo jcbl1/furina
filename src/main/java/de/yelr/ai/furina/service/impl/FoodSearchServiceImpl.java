@@ -4,14 +4,13 @@ import de.yelr.ai.furina.dto.ai.SearchFilter;
 import de.yelr.ai.furina.dto.ai.SearchResultResponse;
 import de.yelr.ai.furina.service.FoodSearchService;
 import de.yelr.ai.furina.util.FilterExpressionParser;
+import java.util.List;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.util.List;
 
 @Service
 public class FoodSearchServiceImpl implements FoodSearchService {
@@ -34,9 +33,7 @@ public class FoodSearchServiceImpl implements FoodSearchService {
         }
         int safeTopK = topK <= 0 ? DEFAULT_TOP_K : Math.min(topK, MAX_TOP_K);
 
-        SearchRequest.Builder request = SearchRequest.builder()
-                .query(query.trim())
-                .topK(safeTopK);
+        SearchRequest.Builder request = SearchRequest.builder().query(query.trim()).topK(safeTopK);
         Filter.Expression expression = filterParser.combine(filters);
         if (expression != null) {
             request.filterExpression(expression);
@@ -47,11 +44,13 @@ public class FoodSearchServiceImpl implements FoodSearchService {
             return List.of();
         }
         return documents.stream()
-                .map(document -> new SearchResultResponse(
-                        document.getId(),
-                        document.getText(),
-                        document.getMetadata(),
-                        document.getScore()))
+                .map(
+                        document ->
+                                new SearchResultResponse(
+                                        document.getId(),
+                                        document.getText(),
+                                        document.getMetadata(),
+                                        document.getScore()))
                 .toList();
     }
 }

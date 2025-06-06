@@ -2,7 +2,6 @@ package de.yelr.ai.furina.dto.food;
 
 import de.yelr.ai.furina.entity.FoodData;
 import de.yelr.ai.furina.entity.FoodDataItem;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,13 +14,11 @@ public record FoodResponse(
         BigDecimal averageCost,
         Integer deliveryTime,
         String featuredComment,
-        List<FoodItemResponse> items
-) {
+        List<FoodItemResponse> items) {
 
     public static FoodResponse from(FoodData food, List<FoodDataItem> items) {
-        List<FoodItemResponse> itemResponses = items == null
-                ? List.of()
-                : items.stream().map(FoodItemResponse::from).toList();
+        List<FoodItemResponse> itemResponses =
+                items == null ? List.of() : items.stream().map(FoodItemResponse::from).toList();
         return new FoodResponse(
                 food.getId(),
                 food.getThumbnailPath(),
@@ -31,7 +28,6 @@ public record FoodResponse(
                 food.getAverageCost(),
                 food.getDeliveryTime(),
                 food.getFeaturedComment(),
-                itemResponses
-        );
+                itemResponses);
     }
 }

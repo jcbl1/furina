@@ -1,5 +1,11 @@
 package de.yelr.ai.furina.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import de.yelr.ai.furina.dto.order.OrderCreateRequest;
 import de.yelr.ai.furina.dto.order.OrderResponse;
 import de.yelr.ai.furina.entity.CustomerOrder;
@@ -12,6 +18,8 @@ import de.yelr.ai.furina.mapper.CustomerOrderMapper;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.impl.OrderServiceImpl;
+import java.math.BigDecimal;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,36 +27,24 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 @ExtendWith(MockitoExtension.class)
 class OrderServiceImplTest {
 
-    @Mock
-    private FoodDataMapper foodDataMapper;
+    @Mock private FoodDataMapper foodDataMapper;
 
-    @Mock
-    private FoodDataItemMapper foodDataItemMapper;
+    @Mock private FoodDataItemMapper foodDataItemMapper;
 
-    @Mock
-    private CustomerOrderMapper orderMapper;
+    @Mock private CustomerOrderMapper orderMapper;
 
-    @Mock
-    private CustomerOrderItemMapper orderItemMapper;
+    @Mock private CustomerOrderItemMapper orderItemMapper;
 
     private OrderServiceImpl orderService;
 
     @BeforeEach
     void setUp() {
-        orderService = new OrderServiceImpl(
-                foodDataMapper, foodDataItemMapper, orderMapper, orderItemMapper);
+        orderService =
+                new OrderServiceImpl(
+                        foodDataMapper, foodDataItemMapper, orderMapper, orderItemMapper);
     }
 
     @Test
@@ -58,19 +54,27 @@ class OrderServiceImplTest {
         FoodDataItem egg = item(11, 3, "Egg", "7.50");
         when(foodDataMapper.selectById(3)).thenReturn(food);
         when(foodDataItemMapper.selectOne(any())).thenReturn(noodles, egg);
-        when(orderMapper.insert(any(CustomerOrder.class))).thenAnswer(invocation -> {
-            invocation.<CustomerOrder>getArgument(0).setId(100L);
-            return 1;
-        });
+        when(orderMapper.insert(any(CustomerOrder.class)))
+                .thenAnswer(
+                        invocation -> {
+                            invocation.<CustomerOrder>getArgument(0).setId(100L);
+                            return 1;
+                        });
         when(orderItemMapper.insert(any(CustomerOrderItem.class))).thenReturn(1);
 
-        OrderResponse response = orderService.placeOrder(new OrderCreateRequest(
-                new OrderCreateRequest.AppointmentRequest(false, 45),
-                List.of(new OrderCreateRequest.RestaurantOrderRequest(3, List.of(
-                        new OrderCreateRequest.OrderLineRequest(10, 2, "no coriander"),
-                        new OrderCreateRequest.OrderLineRequest(11, 1, null)
-                )))
-        ), 9L);
+        OrderResponse response =
+                orderService.placeOrder(
+                        new OrderCreateRequest(
+                                new OrderCreateRequest.AppointmentRequest(false, 45),
+                                List.of(
+                                        new OrderCreateRequest.RestaurantOrderRequest(
+                                                3,
+                                                List.of(
+                                                        new OrderCreateRequest.OrderLineRequest(
+                                                                10, 2, "no coriander"),
+                                                        new OrderCreateRequest.OrderLineRequest(
+                                                                11, 1, null))))),
+                        9L);
 
         assertThat(response.totalAmount()).isEqualByComparingTo("27.50");
         assertThat(response.items()).hasSize(2);
@@ -90,12 +94,21 @@ class OrderServiceImplTest {
         when(foodDataMapper.selectById(3)).thenReturn(food(3, "Noodle shop"));
         when(foodDataItemMapper.selectOne(any())).thenReturn(null);
 
-        assertThatThrownBy(() -> orderService.placeOrder(new OrderCreateRequest(
-                new OrderCreateRequest.AppointmentRequest(true, null),
-                List.of(new OrderCreateRequest.RestaurantOrderRequest(3, List.of(
-                        new OrderCreateRequest.OrderLineRequest(99, 1, null)
-                )))
-        ), 9L))
+        assertThatThrownBy(
+                        () ->
+                                orderService.placeOrder(
+                                        new OrderCreateRequest(
+                                                new OrderCreateRequest.AppointmentRequest(
+                                                        true, null),
+                                                List.of(
+                                                        new OrderCreateRequest
+                                                                .RestaurantOrderRequest(
+                                                                3,
+                                                                List.of(
+                                                                        new OrderCreateRequest
+                                                                                .OrderLineRequest(
+                                                                                99, 1, null))))),
+                                        9L))
                 .isInstanceOf(ApiException.class)
                 .hasMessageContaining("Menu item 99");
     }

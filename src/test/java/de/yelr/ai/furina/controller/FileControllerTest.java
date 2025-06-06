@@ -1,26 +1,24 @@
 package de.yelr.ai.furina.controller;
 
-import de.yelr.ai.furina.config.properties.FileStorageProperties;
-import de.yelr.ai.furina.exception.GlobalExceptionHandler;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import de.yelr.ai.furina.config.properties.FileStorageProperties;
+import de.yelr.ai.furina.exception.GlobalExceptionHandler;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
 class FileControllerTest {
 
-    @TempDir
-    Path root;
+    @TempDir Path root;
 
     @Test
     void servesExistingThumbnail() throws Exception {

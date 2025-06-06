@@ -3,9 +3,9 @@ package de.yelr.ai.furina.common;
 /**
  * Envelope used by every JSON endpoint.
  *
- * @param code    application-level code, {@code 0} for success
+ * @param code application-level code, {@code 0} for success
  * @param message human readable description
- * @param data    payload, may be {@code null}
+ * @param data payload, may be {@code null}
  */
 public record ApiResponse<T>(int code, String message, T data) {
 

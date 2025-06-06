@@ -1,19 +1,18 @@
 package de.yelr.ai.furina.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import de.yelr.ai.furina.dto.food.FoodCreateRequest;
-import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
-
-import java.io.ByteArrayInputStream;
-import java.nio.charset.StandardCharsets;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import de.yelr.ai.furina.dto.food.FoodCreateRequest;
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
+import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 class FoodDataImportServiceTest {
 
@@ -21,11 +20,12 @@ class FoodDataImportServiceTest {
     void importFromMapsSnakeCasePayload() throws Exception {
         FoodService foodService = mock(FoodService.class);
         when(foodService.createBatch(anyList())).thenReturn(1);
-        ObjectMapper objectMapper = new ObjectMapper()
-                .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        ObjectMapper objectMapper =
+                new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         FoodDataImportService importService = new FoodDataImportService(foodService, objectMapper);
 
-        String json = """
+        String json =
+                """
                 [
                   {
                     "title": "Noodle shop",
@@ -41,12 +41,14 @@ class FoodDataImportServiceTest {
                 ]
                 """;
 
-        int imported = importService.importFrom(
-                new ByteArrayInputStream(json.getBytes(StandardCharsets.UTF_8)));
+        int imported =
+                importService.importFrom(
+                        new ByteArrayInputStream(json.getBytes(StandardCharsets.UTF_8)));
 
         assertThat(imported).isEqualTo(1);
         @SuppressWarnings("unchecked")
-        ArgumentCaptor<java.util.List<FoodCreateRequest>> captor = ArgumentCaptor.forClass(java.util.List.class);
+        ArgumentCaptor<java.util.List<FoodCreateRequest>> captor =
+                ArgumentCaptor.forClass(java.util.List.class);
         verify(foodService).createBatch(captor.capture());
         FoodCreateRequest request = captor.getValue().get(0);
         assertThat(request.title()).isEqualTo("Noodle shop");
@@ -59,14 +61,15 @@ class FoodDataImportServiceTest {
     void bundledSnapshotIsReadable() {
         FoodService foodService = mock(FoodService.class);
         when(foodService.createBatch(anyList())).thenReturn(1);
-        ObjectMapper objectMapper = new ObjectMapper()
-                .setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        ObjectMapper objectMapper =
+                new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         FoodDataImportService importService = new FoodDataImportService(foodService, objectMapper);
 
         importService.importSeedData();
 
         @SuppressWarnings("unchecked")
-        ArgumentCaptor<java.util.List<FoodCreateRequest>> captor = ArgumentCaptor.forClass(java.util.List.class);
+        ArgumentCaptor<java.util.List<FoodCreateRequest>> captor =
+                ArgumentCaptor.forClass(java.util.List.class);
         verify(foodService).createBatch(captor.capture());
         assertThat(captor.getValue()).isNotEmpty();
         assertThat(captor.getValue().get(0).title()).isNotBlank();

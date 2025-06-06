@@ -7,15 +7,14 @@ import de.yelr.ai.furina.entity.FoodDataItem;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.FoodIndexService;
-import org.springframework.ai.document.Document;
-import org.springframework.ai.vectorstore.VectorStore;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.ai.document.Document;
+import org.springframework.ai.vectorstore.VectorStore;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class FoodIndexServiceImpl implements FoodIndexService {
@@ -25,10 +24,11 @@ public class FoodIndexServiceImpl implements FoodIndexService {
     private final VectorStore vectorStore;
     private final Gson gson;
 
-    public FoodIndexServiceImpl(FoodDataMapper foodDataMapper,
-                                FoodDataItemMapper foodDataItemMapper,
-                                VectorStore vectorStore,
-                                Gson gson) {
+    public FoodIndexServiceImpl(
+            FoodDataMapper foodDataMapper,
+            FoodDataItemMapper foodDataItemMapper,
+            VectorStore vectorStore,
+            Gson gson) {
         this.foodDataMapper = foodDataMapper;
         this.foodDataItemMapper = foodDataItemMapper;
         this.vectorStore = vectorStore;
@@ -44,30 +44,43 @@ public class FoodIndexServiceImpl implements FoodIndexService {
         }
 
         List<Integer> foodIds = foods.stream().map(FoodData::getId).toList();
-        List<FoodDataItem> items = foodDataItemMapper.selectList(
-                Wrappers.<FoodDataItem>lambdaQuery().in(FoodDataItem::getFoodDataId, foodIds));
-        Map<Integer, List<FoodDataItem>> itemsByFood = items.stream()
-                .collect(Collectors.groupingBy(FoodDataItem::getFoodDataId));
+        List<FoodDataItem> items =
+                foodDataItemMapper.selectList(
+                        Wrappers.<FoodDataItem>lambdaQuery()
+                                .in(FoodDataItem::getFoodDataId, foodIds));
+        Map<Integer, List<FoodDataItem>> itemsByFood =
+                items.stream().collect(Collectors.groupingBy(FoodDataItem::getFoodDataId));
 
-        List<Document> documents = foods.stream()
-                .map(food -> toDocument(food, itemsByFood.getOrDefault(food.getId(), List.of())))
-                .toList();
+        List<Document> documents =
+                foods.stream()
+                        .map(
+                                food ->
+                                        toDocument(
+                                                food,
+                                                itemsByFood.getOrDefault(food.getId(), List.of())))
+                        .toList();
         vectorStore.add(documents);
         return documents.size();
     }
 
     private Document toDocument(FoodData food, List<FoodDataItem> items) {
-        FoodSnapshot snapshot = new FoodSnapshot(
-                food.getTitle(),
-                food.getFeaturedComment(),
-                items.stream()
-                        .map(item -> new ItemSnapshot(item.getName(), item.getDescription(), item.getPrice()))
-                        .toList()
-        );
-        Document.Builder builder = Document.builder()
-                .id(String.valueOf(food.getId()))
-                .text(gson.toJson(snapshot))
-                .metadata("title", food.getTitle());
+        FoodSnapshot snapshot =
+                new FoodSnapshot(
+                        food.getTitle(),
+                        food.getFeaturedComment(),
+                        items.stream()
+                                .map(
+                                        item ->
+                                                new ItemSnapshot(
+                                                        item.getName(),
+                                                        item.getDescription(),
+                                                        item.getPrice()))
+                                .toList());
+        Document.Builder builder =
+                Document.builder()
+                        .id(String.valueOf(food.getId()))
+                        .text(gson.toJson(snapshot))
+                        .metadata("title", food.getTitle());
         if (food.getRating() != null) {
             builder.metadata("rating", food.getRating());
         }
@@ -83,9 +96,7 @@ public class FoodIndexServiceImpl implements FoodIndexService {
         return builder.build();
     }
 
-    private record FoodSnapshot(String title, String featuredComment, List<ItemSnapshot> items) {
-    }
+    private record FoodSnapshot(String title, String featuredComment, List<ItemSnapshot> items) {}
 
-    private record ItemSnapshot(String name, String description, BigDecimal price) {
-    }
+    private record ItemSnapshot(String name, String description, BigDecimal price) {}
 }

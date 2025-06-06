@@ -1,9 +1,17 @@
 package de.yelr.ai.furina.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import de.yelr.ai.furina.dto.ai.SearchFilter;
 import de.yelr.ai.furina.dto.ai.SearchResultResponse;
 import de.yelr.ai.furina.service.impl.FoodSearchServiceImpl;
 import de.yelr.ai.furina.util.FilterExpressionParser;
+import java.util.List;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.ai.document.Document;
@@ -11,31 +19,24 @@ import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
 
-import java.util.List;
-import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 class FoodSearchServiceImplTest {
 
     @Test
     void mapsDocumentsAndAppliesFilters() {
         VectorStore vectorStore = mock(VectorStore.class);
-        Document document = Document.builder()
-                .id("10")
-                .text("{\"title\":\"Noodle shop\"}")
-                .metadata(Map.of("rating", 4.8))
-                .score(0.91)
-                .build();
+        Document document =
+                Document.builder()
+                        .id("10")
+                        .text("{\"title\":\"Noodle shop\"}")
+                        .metadata(Map.of("rating", 4.8))
+                        .score(0.91)
+                        .build();
         when(vectorStore.similaritySearch(any(SearchRequest.class))).thenReturn(List.of(document));
 
-        FoodSearchServiceImpl service = new FoodSearchServiceImpl(vectorStore, new FilterExpressionParser());
-        List<SearchResultResponse> results = service.search("noodle", 5,
-                List.of(new SearchFilter("rating", "GTE", "4.5")));
+        FoodSearchServiceImpl service =
+                new FoodSearchServiceImpl(vectorStore, new FilterExpressionParser());
+        List<SearchResultResponse> results =
+                service.search("noodle", 5, List.of(new SearchFilter("rating", "GTE", "4.5")));
 
         assertThat(results).hasSize(1);
         assertThat(results.get(0).id()).isEqualTo("10");
@@ -52,7 +53,8 @@ class FoodSearchServiceImplTest {
     @Test
     void clampsTopKAndHandlesBlankQuery() {
         VectorStore vectorStore = mock(VectorStore.class);
-        FoodSearchServiceImpl service = new FoodSearchServiceImpl(vectorStore, new FilterExpressionParser());
+        FoodSearchServiceImpl service =
+                new FoodSearchServiceImpl(vectorStore, new FilterExpressionParser());
 
         assertThat(service.search("  ", 5, null)).isEmpty();
         assertThat(service.search("noodle", 999, null)).isEmpty();

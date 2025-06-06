@@ -25,10 +25,11 @@ public class AuthServiceImpl implements AuthService {
     private final JwtProperties jwtProperties;
     private final TokenBlacklistService blacklistService;
 
-    public AuthServiceImpl(AuthenticationManager authenticationManager,
-                           JwtTokenProvider tokenProvider,
-                           JwtProperties jwtProperties,
-                           TokenBlacklistService blacklistService) {
+    public AuthServiceImpl(
+            AuthenticationManager authenticationManager,
+            JwtTokenProvider tokenProvider,
+            JwtProperties jwtProperties,
+            TokenBlacklistService blacklistService) {
         this.authenticationManager = authenticationManager;
         this.tokenProvider = tokenProvider;
         this.jwtProperties = jwtProperties;
@@ -37,17 +38,21 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public LoginResponse login(LoginRequest request) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.username(), request.password()));
+        Authentication authentication =
+                authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(
+                                request.username(), request.password()));
 
         AccountPrincipal principal = (AccountPrincipal) authentication.getPrincipal();
         String token = tokenProvider.generateToken(principal);
-        return new LoginResponse(token, "Bearer", jwtProperties.expiration(), toResponse(principal));
+        return new LoginResponse(
+                token, "Bearer", jwtProperties.expiration(), toResponse(principal));
     }
 
     @Override
     public CurrentUserResponse currentUser(Authentication authentication) {
-        if (authentication == null || !(authentication.getPrincipal() instanceof AccountPrincipal principal)) {
+        if (authentication == null
+                || !(authentication.getPrincipal() instanceof AccountPrincipal principal)) {
             throw ApiException.unauthorized("Authentication is required");
         }
         return toResponse(principal);
@@ -81,6 +86,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     private static CurrentUserResponse toResponse(AccountPrincipal principal) {
-        return new CurrentUserResponse(principal.getId(), principal.getUsername(), principal.getRole());
+        return new CurrentUserResponse(
+                principal.getId(), principal.getUsername(), principal.getRole());
     }
 }

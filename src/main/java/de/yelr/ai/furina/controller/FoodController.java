@@ -13,6 +13,7 @@ import de.yelr.ai.furina.service.FoodService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -25,8 +26,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @Validated
 @RestController
@@ -55,7 +54,8 @@ public class FoodController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<FoodResponse>> create(@Valid @RequestBody FoodCreateRequest request) {
+    public ResponseEntity<ApiResponse<FoodResponse>> create(
+            @Valid @RequestBody FoodCreateRequest request) {
         FoodResponse created = foodService.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponse.success(created));
     }
@@ -70,8 +70,7 @@ public class FoodController {
 
     @PutMapping("/{id}")
     public ApiResponse<FoodResponse> update(
-            @PathVariable int id,
-            @Valid @RequestBody FoodUpdateRequest request) {
+            @PathVariable int id, @Valid @RequestBody FoodUpdateRequest request) {
         return ApiResponse.success(foodService.update(id, request));
     }
 
@@ -83,8 +82,7 @@ public class FoodController {
 
     @PostMapping("/{id}/items")
     public ResponseEntity<ApiResponse<FoodItemResponse>> addItem(
-            @PathVariable int id,
-            @Valid @RequestBody FoodItemRequest request) {
+            @PathVariable int id, @Valid @RequestBody FoodItemRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.success(foodService.addItem(id, request)));
     }

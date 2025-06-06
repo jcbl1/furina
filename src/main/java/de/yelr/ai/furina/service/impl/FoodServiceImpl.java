@@ -16,12 +16,11 @@ import de.yelr.ai.furina.exception.ApiException;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.FoodService;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class FoodServiceImpl implements FoodService {
@@ -37,23 +36,24 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public PageResponse<FoodSummaryResponse> list(String keyword, int page, int size, String sortBy, String direction) {
+    public PageResponse<FoodSummaryResponse> list(
+            String keyword, int page, int size, String sortBy, String direction) {
         int safePage = Math.max(page, 1);
         int safeSize = Math.min(Math.max(size, 1), MAX_PAGE_SIZE);
 
         var query = Wrappers.<FoodData>lambdaQuery();
         if (StringUtils.hasText(keyword)) {
-            query.and(wrapper -> wrapper
-                    .like(FoodData::getTitle, keyword.trim())
-                    .or()
-                    .like(FoodData::getFeaturedComment, keyword.trim()));
+            query.and(
+                    wrapper ->
+                            wrapper.like(FoodData::getTitle, keyword.trim())
+                                    .or()
+                                    .like(FoodData::getFeaturedComment, keyword.trim()));
         }
         applySort(query, sortBy, direction);
 
         Page<FoodData> result = foodDataMapper.selectPage(new Page<>(safePage, safeSize), query);
-        List<FoodSummaryResponse> items = result.getRecords().stream()
-                .map(FoodSummaryResponse::from)
-                .toList();
+        List<FoodSummaryResponse> items =
+                result.getRecords().stream().map(FoodSummaryResponse::from).toList();
 
         return PageResponse.of(items, result.getTotal(), result.getCurrent(), result.getSize());
     }
@@ -148,11 +148,14 @@ public class FoodServiceImpl implements FoodService {
     }
 
     private FoodDataItem requireItem(int foodId, int itemId) {
-        FoodDataItem item = foodDataItemMapper.selectOne(Wrappers.<FoodDataItem>lambdaQuery()
-                .eq(FoodDataItem::getId, itemId)
-                .eq(FoodDataItem::getFoodDataId, foodId));
+        FoodDataItem item =
+                foodDataItemMapper.selectOne(
+                        Wrappers.<FoodDataItem>lambdaQuery()
+                                .eq(FoodDataItem::getId, itemId)
+                                .eq(FoodDataItem::getFoodDataId, foodId));
         if (item == null) {
-            throw ApiException.notFound("Menu item %d not found for food %d".formatted(itemId, foodId));
+            throw ApiException.notFound(
+                    "Menu item %d not found for food %d".formatted(itemId, foodId));
         }
         return item;
     }
@@ -197,7 +200,8 @@ public class FoodServiceImpl implements FoodService {
         item.setPrice(request.price());
     }
 
-    private static void applySort(LambdaQueryWrapper<FoodData> query, String sortBy, String direction) {
+    private static void applySort(
+            LambdaQueryWrapper<FoodData> query, String sortBy, String direction) {
         boolean ascending = "asc".equalsIgnoreCase(direction);
         switch (sortBy == null ? "id" : sortBy) {
             case "title" -> query.orderBy(true, ascending, FoodData::getTitle);

@@ -3,14 +3,13 @@ package de.yelr.ai.furina.service.impl;
 import de.yelr.ai.furina.dto.ai.ChatResponse;
 import de.yelr.ai.furina.exception.ApiException;
 import de.yelr.ai.furina.service.AiAssistantService;
+import java.time.Instant;
+import java.util.UUID;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.time.Instant;
-import java.util.UUID;
 
 @Service
 public class AiAssistantServiceImpl implements AiAssistantService {
@@ -25,17 +24,21 @@ public class AiAssistantServiceImpl implements AiAssistantService {
 
     @Override
     public ChatResponse chat(String sessionId, String message) {
-        String conversationId = StringUtils.hasText(sessionId)
-                ? sessionId
-                : UUID.randomUUID().toString();
+        String conversationId =
+                StringUtils.hasText(sessionId) ? sessionId : UUID.randomUUID().toString();
 
-        String answer = chatClient.prompt()
-                .advisors(advisors -> advisors.param(
-                        AbstractChatMemoryAdvisor.CHAT_MEMORY_CONVERSATION_ID_KEY,
-                        conversationId))
-                .user(message)
-                .call()
-                .content();
+        String answer =
+                chatClient
+                        .prompt()
+                        .advisors(
+                                advisors ->
+                                        advisors.param(
+                                                AbstractChatMemoryAdvisor
+                                                        .CHAT_MEMORY_CONVERSATION_ID_KEY,
+                                                conversationId))
+                        .user(message)
+                        .call()
+                        .content();
 
         if (!StringUtils.hasText(answer)) {
             throw ApiException.internal("The assistant did not return a response");

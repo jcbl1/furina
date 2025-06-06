@@ -25,12 +25,12 @@ public class AiConfig {
     }
 
     @Bean
-    public ChatClient chatClient(ChatClient.Builder builder,
-                                 ChatMemory chatMemory,
-                                 DateTimeTools dateTimeTools,
-                                 AiTools aiTools) {
-        return builder
-                .defaultSystem(new ClassPathResource("prompts/food-assistant.st"))
+    public ChatClient chatClient(
+            ChatClient.Builder builder,
+            ChatMemory chatMemory,
+            DateTimeTools dateTimeTools,
+            AiTools aiTools) {
+        return builder.defaultSystem(new ClassPathResource("prompts/food-assistant.st"))
                 .defaultTools(dateTimeTools, aiTools)
                 .defaultAdvisors(new MessageChatMemoryAdvisor(chatMemory))
                 .build();

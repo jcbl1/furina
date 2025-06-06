@@ -1,15 +1,14 @@
 package de.yelr.ai.furina.security;
 
-import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.stereotype.Service;
 
 /**
- * In-memory revocation list. Expired entries are removed lazily, which keeps
- * the structure bounded by the number of tokens issued within one lifetime.
- * A shared store is the natural next step when the service is scaled out.
+ * In-memory revocation list. Expired entries are removed lazily, which keeps the structure bounded
+ * by the number of tokens issued within one lifetime. A shared store is the natural next step when
+ * the service is scaled out.
  */
 @Service
 public class TokenBlacklistService {

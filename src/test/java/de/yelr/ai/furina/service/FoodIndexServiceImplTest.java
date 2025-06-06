@@ -1,24 +1,23 @@
 package de.yelr.ai.furina.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.google.gson.Gson;
 import de.yelr.ai.furina.entity.FoodData;
 import de.yelr.ai.furina.entity.FoodDataItem;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.impl.FoodIndexServiceImpl;
+import java.math.BigDecimal;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
-
-import java.math.BigDecimal;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 class FoodIndexServiceImplTest {
 
@@ -44,7 +43,8 @@ class FoodIndexServiceImplTest {
         item.setPrice(new BigDecimal("13.50"));
         when(itemMapper.selectList(any())).thenReturn(List.of(item));
 
-        FoodIndexServiceImpl service = new FoodIndexServiceImpl(foodDataMapper, itemMapper, vectorStore, new Gson());
+        FoodIndexServiceImpl service =
+                new FoodIndexServiceImpl(foodDataMapper, itemMapper, vectorStore, new Gson());
         int indexed = service.reindex();
 
         assertThat(indexed).isEqualTo(1);

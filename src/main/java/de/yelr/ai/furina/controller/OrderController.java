@@ -35,8 +35,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<ApiResponse<OrderResponse>> place(
-            @Valid @RequestBody OrderCreateRequest request,
-            Authentication authentication) {
+            @Valid @RequestBody OrderCreateRequest request, Authentication authentication) {
         Long accountId = ((AccountPrincipal) authentication.getPrincipal()).getId();
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.success(orderService.placeOrder(request, accountId)));
@@ -52,7 +51,8 @@ public class OrderController {
     }
 
     @GetMapping("/{orderNo}")
-    public ApiResponse<OrderResponse> detail(@PathVariable String orderNo, Authentication authentication) {
+    public ApiResponse<OrderResponse> detail(
+            @PathVariable String orderNo, Authentication authentication) {
         Long accountId = ((AccountPrincipal) authentication.getPrincipal()).getId();
         return ApiResponse.success(orderService.findByOrderNo(orderNo, accountId));
     }

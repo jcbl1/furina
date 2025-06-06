@@ -2,11 +2,10 @@ package de.yelr.ai.furina.util;
 
 import de.yelr.ai.furina.dto.ai.SearchFilter;
 import de.yelr.ai.furina.exception.ApiException;
+import java.util.List;
 import org.springframework.ai.vectorstore.filter.Filter;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-
-import java.util.List;
 
 @Component
 public class FilterExpressionParser {
@@ -18,9 +17,10 @@ public class FilterExpressionParser {
         Filter.Expression expression = null;
         for (SearchFilter filter : filters) {
             Filter.Expression current = parse(filter);
-            expression = expression == null
-                    ? current
-                    : new Filter.Expression(Filter.ExpressionType.AND, expression, current);
+            expression =
+                    expression == null
+                            ? current
+                            : new Filter.Expression(Filter.ExpressionType.AND, expression, current);
         }
         return expression;
     }
@@ -30,7 +30,8 @@ public class FilterExpressionParser {
             throw ApiException.badRequest("Filter field is required");
         }
         Filter.ExpressionType type = parseType(filter.operator());
-        return new Filter.Expression(type, new Filter.Key(filter.field()), new Filter.Value(filter.value()));
+        return new Filter.Expression(
+                type, new Filter.Key(filter.field()), new Filter.Value(filter.value()));
     }
 
     private static Filter.ExpressionType parseType(String operator) {
@@ -47,7 +48,8 @@ public class FilterExpressionParser {
                 case "LTE" -> Filter.ExpressionType.LTE;
                 case "IN" -> Filter.ExpressionType.IN;
                 case "NIN" -> Filter.ExpressionType.NIN;
-                default -> throw ApiException.badRequest("Unsupported filter operator: " + operator);
+                default ->
+                        throw ApiException.badRequest("Unsupported filter operator: " + operator);
             };
         } catch (IllegalArgumentException exception) {
             throw ApiException.badRequest("Unsupported filter operator: " + operator);

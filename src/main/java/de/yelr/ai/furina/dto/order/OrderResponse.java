@@ -10,8 +10,7 @@ public record OrderResponse(
         BigDecimal totalAmount,
         LocalDateTime eta,
         LocalDateTime createdAt,
-        List<OrderLineResponse> items
-) {
+        List<OrderLineResponse> items) {
 
     public record OrderLineResponse(
             Integer restaurantId,
@@ -20,7 +19,5 @@ public record OrderResponse(
             Integer quantity,
             BigDecimal unitPrice,
             BigDecimal lineTotal,
-            String note
-    ) {
-    }
+            String note) {}
 }

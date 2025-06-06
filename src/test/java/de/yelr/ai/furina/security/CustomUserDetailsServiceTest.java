@@ -1,16 +1,16 @@
 package de.yelr.ai.furina.security;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import de.yelr.ai.furina.entity.Account;
-import de.yelr.ai.furina.mapper.AccountMapper;
-import org.junit.jupiter.api.Test;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import de.yelr.ai.furina.entity.Account;
+import de.yelr.ai.furina.mapper.AccountMapper;
+import org.junit.jupiter.api.Test;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 class CustomUserDetailsServiceTest {
 

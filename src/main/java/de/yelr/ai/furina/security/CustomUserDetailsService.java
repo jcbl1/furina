@@ -23,8 +23,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (!StringUtils.hasText(username)) {
             throw new UsernameNotFoundException("Username is required");
         }
-        Account account = accountMapper.selectOne(
-                Wrappers.<Account>lambdaQuery().eq(Account::getUsername, username));
+        Account account =
+                accountMapper.selectOne(
+                        Wrappers.<Account>lambdaQuery().eq(Account::getUsername, username));
         if (account == null) {
             throw new UsernameNotFoundException("Account not found");
         }

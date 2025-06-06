@@ -1,14 +1,13 @@
 package de.yelr.ai.furina.util;
 
-import de.yelr.ai.furina.dto.ai.SearchFilter;
-import de.yelr.ai.furina.exception.ApiException;
-import org.junit.jupiter.api.Test;
-import org.springframework.ai.vectorstore.filter.Filter;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import de.yelr.ai.furina.dto.ai.SearchFilter;
+import de.yelr.ai.furina.exception.ApiException;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+import org.springframework.ai.vectorstore.filter.Filter;
 
 class FilterExpressionParserTest {
 
@@ -25,10 +24,11 @@ class FilterExpressionParserTest {
 
     @Test
     void combinesFiltersWithAnd() {
-        Filter.Expression expression = parser.combine(List.of(
-                new SearchFilter("rating", "GTE", "4.0"),
-                new SearchFilter("deliveryTime", "LTE", "40")
-        ));
+        Filter.Expression expression =
+                parser.combine(
+                        List.of(
+                                new SearchFilter("rating", "GTE", "4.0"),
+                                new SearchFilter("deliveryTime", "LTE", "40")));
 
         assertThat(expression.type()).isEqualTo(Filter.ExpressionType.AND);
         assertThat(expression.left()).isInstanceOf(Filter.Expression.class);

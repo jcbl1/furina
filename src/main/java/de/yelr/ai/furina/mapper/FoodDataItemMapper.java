@@ -5,5 +5,4 @@ import de.yelr.ai.furina.entity.FoodDataItem;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface FoodDataItemMapper extends BaseMapper<FoodDataItem> {
-}
+public interface FoodDataItemMapper extends BaseMapper<FoodDataItem> {}

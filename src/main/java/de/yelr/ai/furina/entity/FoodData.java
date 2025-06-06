@@ -4,9 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.math.BigDecimal;
+import lombok.Data;
 
 @Data
 @TableName("food_data")
@@ -30,9 +29,7 @@ public class FoodData {
     @TableField("average_cost")
     private BigDecimal averageCost;
 
-    /**
-     * Estimated delivery time in minutes.
-     */
+    /** Estimated delivery time in minutes. */
     @TableField("delivery_time")
     private Integer deliveryTime;
 

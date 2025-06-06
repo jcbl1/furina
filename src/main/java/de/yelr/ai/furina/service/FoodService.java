@@ -7,12 +7,12 @@ import de.yelr.ai.furina.dto.food.FoodItemResponse;
 import de.yelr.ai.furina.dto.food.FoodResponse;
 import de.yelr.ai.furina.dto.food.FoodSummaryResponse;
 import de.yelr.ai.furina.dto.food.FoodUpdateRequest;
-
 import java.util.List;
 
 public interface FoodService {
 
-    PageResponse<FoodSummaryResponse> list(String keyword, int page, int size, String sortBy, String direction);
+    PageResponse<FoodSummaryResponse> list(
+            String keyword, int page, int size, String sortBy, String direction);
 
     FoodResponse findById(int id);
 

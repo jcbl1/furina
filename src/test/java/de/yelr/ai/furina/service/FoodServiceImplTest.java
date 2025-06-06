@@ -1,5 +1,12 @@
 package de.yelr.ai.furina.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import de.yelr.ai.furina.dto.food.FoodCreateRequest;
 import de.yelr.ai.furina.dto.food.FoodItemRequest;
@@ -11,30 +18,20 @@ import de.yelr.ai.furina.exception.ApiException;
 import de.yelr.ai.furina.mapper.FoodDataItemMapper;
 import de.yelr.ai.furina.mapper.FoodDataMapper;
 import de.yelr.ai.furina.service.impl.FoodServiceImpl;
+import java.math.BigDecimal;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.math.BigDecimal;
-import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 @ExtendWith(MockitoExtension.class)
 class FoodServiceImplTest {
 
-    @Mock
-    private FoodDataMapper foodDataMapper;
+    @Mock private FoodDataMapper foodDataMapper;
 
-    @Mock
-    private FoodDataItemMapper foodDataItemMapper;
+    @Mock private FoodDataItemMapper foodDataItemMapper;
 
     private FoodServiceImpl foodService;
 
@@ -69,25 +66,32 @@ class FoodServiceImplTest {
 
     @Test
     void createPersistsFoodAndItsItems() {
-        when(foodDataMapper.insert(any(FoodData.class))).thenAnswer(invocation -> {
-            invocation.<FoodData>getArgument(0).setId(7);
-            return 1;
-        });
-        when(foodDataItemMapper.insert(any(FoodDataItem.class))).thenAnswer(invocation -> {
-            invocation.<FoodDataItem>getArgument(0).setId(11);
-            return 1;
-        });
+        when(foodDataMapper.insert(any(FoodData.class)))
+                .thenAnswer(
+                        invocation -> {
+                            invocation.<FoodData>getArgument(0).setId(7);
+                            return 1;
+                        });
+        when(foodDataItemMapper.insert(any(FoodDataItem.class)))
+                .thenAnswer(
+                        invocation -> {
+                            invocation.<FoodDataItem>getArgument(0).setId(11);
+                            return 1;
+                        });
 
-        FoodResponse response = foodService.create(new FoodCreateRequest(
-                "images/thumbnails/a",
-                "Rice bowl",
-                4.8,
-                120,
-                new BigDecimal("18.50"),
-                30,
-                "great",
-                List.of(new FoodItemRequest("Beef bowl", "tender", new BigDecimal("16.00")))
-        ));
+        FoodResponse response =
+                foodService.create(
+                        new FoodCreateRequest(
+                                "images/thumbnails/a",
+                                "Rice bowl",
+                                4.8,
+                                120,
+                                new BigDecimal("18.50"),
+                                30,
+                                "great",
+                                List.of(
+                                        new FoodItemRequest(
+                                                "Beef bowl", "tender", new BigDecimal("16.00")))));
 
         assertThat(response.id()).isEqualTo(7);
         assertThat(response.items()).hasSize(1);
@@ -99,8 +103,12 @@ class FoodServiceImplTest {
     void updateThrowsWhenFoodDoesNotExist() {
         when(foodDataMapper.selectById(99)).thenReturn(null);
 
-        assertThatThrownBy(() -> foodService.update(99,
-                new FoodUpdateRequest(null, "missing", 4.0, 0, BigDecimal.TEN, 20, null)))
+        assertThatThrownBy(
+                        () ->
+                                foodService.update(
+                                        99,
+                                        new FoodUpdateRequest(
+                                                null, "missing", 4.0, 0, BigDecimal.TEN, 20, null)))
                 .isInstanceOf(ApiException.class);
 
         verify(foodDataMapper, never()).updateById(any(FoodData.class));
@@ -110,8 +118,10 @@ class FoodServiceImplTest {
     void updateItemRejectsItemOwnedByAnotherFood() {
         when(foodDataItemMapper.selectOne(any())).thenReturn(null);
 
-        assertThatThrownBy(() -> foodService.updateItem(1, 2,
-                new FoodItemRequest("name", null, BigDecimal.ONE)))
+        assertThatThrownBy(
+                        () ->
+                                foodService.updateItem(
+                                        1, 2, new FoodItemRequest("name", null, BigDecimal.ONE)))
                 .isInstanceOf(ApiException.class)
                 .hasMessageContaining("Menu item 2");
     }

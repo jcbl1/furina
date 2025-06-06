@@ -1,7 +1,6 @@
 package de.yelr.ai.furina.dto.food;
 
 import de.yelr.ai.furina.entity.FoodData;
-
 import java.math.BigDecimal;
 
 public record FoodSummaryResponse(
@@ -12,8 +11,7 @@ public record FoodSummaryResponse(
         Integer salesMonthly,
         BigDecimal averageCost,
         Integer deliveryTime,
-        String featuredComment
-) {
+        String featuredComment) {
 
     public static FoodSummaryResponse from(FoodData food) {
         return new FoodSummaryResponse(
@@ -24,7 +22,6 @@ public record FoodSummaryResponse(
                 food.getSalesMonthly(),
                 food.getAverageCost(),
                 food.getDeliveryTime(),
-                food.getFeaturedComment()
-        );
+                food.getFeaturedComment());
     }
 }

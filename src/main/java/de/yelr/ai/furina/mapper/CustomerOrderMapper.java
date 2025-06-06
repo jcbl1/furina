@@ -5,5 +5,4 @@ import de.yelr.ai.furina.entity.CustomerOrder;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface CustomerOrderMapper extends BaseMapper<CustomerOrder> {
-}
+public interface CustomerOrderMapper extends BaseMapper<CustomerOrder> {}

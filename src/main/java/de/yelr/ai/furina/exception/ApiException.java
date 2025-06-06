@@ -2,10 +2,7 @@ package de.yelr.ai.furina.exception;
 
 import org.springframework.http.HttpStatus;
 
-/**
- * Application exception carrying the HTTP status that should be returned
- * to the client.
- */
+/** Application exception carrying the HTTP status that should be returned to the client. */
 public class ApiException extends RuntimeException {
 
     private final HttpStatus status;

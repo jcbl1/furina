@@ -1,5 +1,11 @@
 package de.yelr.ai.furina.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import de.yelr.ai.furina.config.properties.JwtProperties;
 import de.yelr.ai.furina.dto.auth.LoginRequest;
 import de.yelr.ai.furina.dto.auth.LoginResponse;
@@ -8,6 +14,7 @@ import de.yelr.ai.furina.security.AccountPrincipal;
 import de.yelr.ai.furina.security.JwtTokenProvider;
 import de.yelr.ai.furina.security.TokenBlacklistService;
 import de.yelr.ai.furina.service.impl.AuthServiceImpl;
+import java.util.Date;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,25 +24,14 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
-import java.util.Date;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 @ExtendWith(MockitoExtension.class)
 class AuthServiceImplTest {
 
-    @Mock
-    private AuthenticationManager authenticationManager;
+    @Mock private AuthenticationManager authenticationManager;
 
-    @Mock
-    private JwtTokenProvider tokenProvider;
+    @Mock private JwtTokenProvider tokenProvider;
 
-    @Mock
-    private TokenBlacklistService blacklistService;
+    @Mock private TokenBlacklistService blacklistService;
 
     private AuthServiceImpl authService;
     private AccountPrincipal principal;
@@ -43,14 +39,17 @@ class AuthServiceImplTest {
     @BeforeEach
     void setUp() {
         JwtProperties properties = new JwtProperties("test-secret", 3_600_000);
-        authService = new AuthServiceImpl(authenticationManager, tokenProvider, properties, blacklistService);
+        authService =
+                new AuthServiceImpl(
+                        authenticationManager, tokenProvider, properties, blacklistService);
         principal = new AccountPrincipal(9L, "admin", "hash", "ADMIN", true);
     }
 
     @Test
     void loginReturnsTokenAndUser() {
-        Authentication authentication = UsernamePasswordAuthenticationToken.authenticated(
-                principal, null, principal.getAuthorities());
+        Authentication authentication =
+                UsernamePasswordAuthenticationToken.authenticated(
+                        principal, null, principal.getAuthorities());
         when(authenticationManager.authenticate(any())).thenReturn(authentication);
         when(tokenProvider.generateToken(principal)).thenReturn("jwt-token");
 
