@@ -82,6 +82,33 @@ class ArchitectureTest {
                             "..controller..", "..service..", "..mapper..", "..entity..");
 
     @ArchTest
+    static final ArchRule service_contracts_should_be_interfaces =
+            classes()
+                    .that()
+                    .resideInAPackage("de.yelr.ai.furina.service")
+                    .and()
+                    .areTopLevelClasses()
+                    .should()
+                    .beInterfaces();
+
+    @ArchTest
+    static final ArchRule service_implementations_should_live_in_impl =
+            classes()
+                    .that()
+                    .haveSimpleNameEndingWith("ServiceImpl")
+                    .should()
+                    .resideInAPackage("..service.impl..");
+
+    @ArchTest
+    static final ArchRule dtos_should_not_depend_on_persistence =
+            noClasses()
+                    .that()
+                    .resideInAPackage("..dto..")
+                    .should()
+                    .dependOnClassesThat()
+                    .resideInAnyPackage("..entity..", "..mapper..");
+
+    @ArchTest
     static final ArchRule field_injection_is_not_allowed =
             noFields().should().beAnnotatedWith(Autowired.class);
 }

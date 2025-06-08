@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import de.yelr.ai.furina.common.PageResponse;
+import de.yelr.ai.furina.converter.FoodDtoConverter;
 import de.yelr.ai.furina.dto.food.FoodCreateRequest;
 import de.yelr.ai.furina.dto.food.FoodItemRequest;
 import de.yelr.ai.furina.dto.food.FoodItemResponse;
@@ -53,7 +54,7 @@ public class FoodServiceImpl implements FoodService {
 
         Page<FoodData> result = foodDataMapper.selectPage(new Page<>(safePage, safeSize), query);
         List<FoodSummaryResponse> items =
-                result.getRecords().stream().map(FoodSummaryResponse::from).toList();
+                result.getRecords().stream().map(FoodDtoConverter::toSummaryResponse).toList();
 
         return PageResponse.of(items, result.getTotal(), result.getCurrent(), result.getSize());
     }
@@ -61,7 +62,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public FoodResponse findById(int id) {
         FoodData food = requireFood(id);
-        return FoodResponse.from(food, loadItems(id));
+        return FoodDtoConverter.toResponse(food, loadItems(id));
     }
 
     @Override
@@ -72,7 +73,7 @@ public class FoodServiceImpl implements FoodService {
         foodDataMapper.insert(food);
 
         List<FoodDataItem> items = insertItems(food.getId(), request.items());
-        return FoodResponse.from(food, items);
+        return FoodDtoConverter.toResponse(food, items);
     }
 
     @Override
@@ -101,7 +102,7 @@ public class FoodServiceImpl implements FoodService {
         food.setDeliveryTime(request.deliveryTime());
         food.setFeaturedComment(request.featuredComment());
         foodDataMapper.updateById(food);
-        return FoodResponse.from(food, loadItems(id));
+        return FoodDtoConverter.toResponse(food, loadItems(id));
     }
 
     @Override
@@ -120,7 +121,7 @@ public class FoodServiceImpl implements FoodService {
         item.setFoodDataId(foodId);
         applyItemRequest(item, request);
         foodDataItemMapper.insert(item);
-        return FoodItemResponse.from(item);
+        return FoodDtoConverter.toItemResponse(item);
     }
 
     @Override
@@ -129,7 +130,7 @@ public class FoodServiceImpl implements FoodService {
         FoodDataItem item = requireItem(foodId, itemId);
         applyItemRequest(item, request);
         foodDataItemMapper.updateById(item);
-        return FoodItemResponse.from(item);
+        return FoodDtoConverter.toItemResponse(item);
     }
 
     @Override

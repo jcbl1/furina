@@ -9,6 +9,7 @@ import static org.mockito.Mockito.when;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import de.yelr.ai.furina.dto.food.FoodCreateRequest;
+import de.yelr.ai.furina.service.impl.FoodDataImportServiceImpl;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,8 @@ class FoodDataImportServiceTest {
         when(foodService.createBatch(anyList())).thenReturn(1);
         ObjectMapper objectMapper =
                 new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
-        FoodDataImportService importService = new FoodDataImportService(foodService, objectMapper);
+        FoodDataImportService importService =
+                new FoodDataImportServiceImpl(foodService, objectMapper);
 
         String json =
                 """
@@ -63,7 +65,8 @@ class FoodDataImportServiceTest {
         when(foodService.createBatch(anyList())).thenReturn(1);
         ObjectMapper objectMapper =
                 new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
-        FoodDataImportService importService = new FoodDataImportService(foodService, objectMapper);
+        FoodDataImportService importService =
+                new FoodDataImportServiceImpl(foodService, objectMapper);
 
         importService.importSeedData();
 
