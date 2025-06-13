@@ -2,7 +2,7 @@ spring:
   application:
     name: furina
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${DB_URL:jdbc:mysql://localhost:3306/furina?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useTimezone=true&serverTimezone=GMT%2B8}
@@ -48,3 +48,4 @@ file-storage:
 
 server:
   port: 10240
+  shutdown: graceful

@@ -4,6 +4,12 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Local environment overrides
+.env
+.env.*
+!.env.example
+application-local.yml
+
 # Runtime uploads
 src/main/resources/static/files/images/thumbnails/
 

@@ -1,4 +1,4 @@
-package de.yelr.ai.furina.config;
+package de.yelr.ai.furina.bootstrap;
 
 import de.yelr.ai.furina.service.FoodDataImportService;
 import lombok.extern.slf4j.Slf4j;
