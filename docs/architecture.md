@@ -72,3 +72,18 @@
 - 所有环境相关值通过 `${ENV:default}` 注入。
 - `JwtProperties`、`CorsProperties`、`FileStorageProperties` 使用 `@ConfigurationProperties` 绑定。
 - `application-dev.yml` 只放开发环境默认值，不提交真实密钥。
+- `spring-boot-devtools` 仅用于本地开发，声明为 runtime optional。
+
+## 质量门禁
+
+- Spotless 在 `validate` 阶段执行 `check`，格式不一致会阻断构建；使用
+  `./mvnw spotless:apply` 修复。
+- ArchUnit 测试保证：
+  - Controller 不访问 Entity / Mapper；
+  - Service 不依赖 Controller；
+  - Mapper 不依赖 Service；
+  - Entity 不依赖 Web、Service、Mapper、DTO；
+  - DTO 不依赖持久化模型；
+  - `service` 包只放接口，实现位于 `service.impl`；
+  - 禁止字段注入。
+- 提交前执行 `./mvnw verify`，同时运行格式检查、架构测试和单元测试。
