@@ -37,10 +37,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
-            JwtAuthenticationFilter jwtAuthenticationFilter,
+            JwtTokenProvider tokenProvider,
+            UserDetailsService userDetailsService,
+            TokenBlacklistService blacklistService,
             RestAuthenticationEntryPoint authenticationEntryPoint,
             RestAccessDeniedHandler accessDeniedHandler)
             throws Exception {
+        JwtAuthenticationFilter jwtAuthenticationFilter =
+                new JwtAuthenticationFilter(tokenProvider, userDetailsService, blacklistService);
         http.authorizeHttpRequests(
                         authorize ->
                                 authorize
@@ -87,13 +91,5 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public JwtAuthenticationFilter jwtAuthenticationFilter(
-            JwtTokenProvider tokenProvider,
-            UserDetailsService userDetailsService,
-            TokenBlacklistService blacklistService) {
-        return new JwtAuthenticationFilter(tokenProvider, userDetailsService, blacklistService);
     }
 }
